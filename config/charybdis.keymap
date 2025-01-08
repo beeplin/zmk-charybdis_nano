@@ -28,9 +28,9 @@
         hcw: hold_caps_word        { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&caps_word>; };
     };
     macros {
-        win_power: win_power { wait-ms = <50>; tap-ms = <5>; compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&kp LG(X) &kp U &kp >; };
-        // win_sleep: win_sleep { wait-ms = <50>; tap-ms = <5>; compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(X) &kp U &kp H>; };
-        // win_sleep: win_sleep { wait-ms = <50>; tap-ms = <5>; compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(X) &kp U &kp R>; };
+        win_sleep:     win_sleep     { wait-ms = <50>; tap-ms = <5>; compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(X) &kp U &kp S>; };
+        win_hibernate: win_hibernate { wait-ms = <50>; tap-ms = <5>; compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(X) &kp U &kp H>; };
+        win_restart:   win_restart   { wait-ms = <50>; tap-ms = <5>; compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(X) &kp U &kp R>; };
     };
     keymap {
         compatible = "zmk,keymap";
@@ -88,7 +88,7 @@
 &none            &kp EXCL         &kp AT           &kp POUND        &kp DLLR         &kp PRCNT                                                           &kp CARET        &kp AMPS         &kp ASTRK        &kp MINUS        &kp PLUS         &none
 &none            &kp GRAVE        &kp LBKT         &kp LBRC         &kp LPAR         &kp PIPE                                                            &kp BSLH         &kp EQUAL        &kp SQT          &kp DQT          &kp COLON        &none
 &none            &kp TILDE        &kp RBKT         &kp RBRC         &kp RPAR         &none                                                               &none            &kp UNDER        &kp LT           &kp GT           &kp QMARK        &none
-                                                   &none            &win_power S     &none                                                               &none            &none >;
+                                                   &win_restart     &win_sleep       &win_hibernate                                                      &none            &none >;
         };
         CONFIG_8 {
             bindings = <
