@@ -17,14 +17,14 @@
 
 / {
     behaviors {
-        lsk: layer_sticky_key      { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; label = "lsk"; bindings = <&mo>, <&sk>; };
-        lsl: layer_sticky_layer    { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; label = "lsl"; bindings = <&mo>, <&sl>; };
-        lmk: layer_mouse_key       { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; label = "lmk"; bindings = <&mo>, <&mkp>; };
-        lcw: layer_caps_word       { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; label = "lcw"; bindings = <&mo>, <&caps_word>; };
-        hsk: hold_sticky_key       { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; label = "hsk"; bindings = <&kp>, <&sk>; };
-        hsl: hold_sticky_layer     { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; label = "hsl"; bindings = <&kp>, <&sl>; };
-        hmk: hold_mouse_key        { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; label = "hmk"; bindings = <&kp>, <&mkp>; };
-        hcw: hold_caps_word        { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; label = "hcw"; bindings = <&kp>, <&caps_word>; };
+        lsk: layer_sticky_key      { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; };
+        lsl: layer_sticky_layer    { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; };
+        lmk: layer_mouse_key       { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&mkp>; };
+        lcw: layer_caps_word       { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&caps_word>; };
+        hsk: hold_sticky_key       { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; };
+        hsl: hold_sticky_layer     { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sl>; };
+        hmk: hold_mouse_key        { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&mkp>; };
+        hcw: hold_caps_word        { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&caps_word>; };
     };
 
     keymap {
@@ -34,7 +34,7 @@
 &none            &kp Q            &kp W            &kp F            &kp P            &kp B                                                               &kp J            &kp L            &kp U            &kp Y            &kp SEMI         &none
 &none            &kp A            &kp R            &kp S            &kp T            &kp G                                                               &kp M            &kp N            &kp E            &kp I            &kp O            &none
 &none            &kp Z            &kp X            &kp C            &kp D            &kp V                                                               &kp K            &kp H            &kp COMMA        &kp DOT          &kp FSLH         &none
-                                                   &hsk LCTRL LALT  &lsk 2 LGUI      &lt 4 ESC                                                           &kp SPACE        &lsk 3 LSHFT >;
+                                                   &hsk LCTRL LALT  &lsk 5 LGUI      &lt 7 ESC                                                           &kp SPACE        &lsk 6 LSHFT >;
         };
         MOUSE_1 {
             bindings = <
@@ -62,7 +62,7 @@
 &none            &kp Q            &kp W            &kp E            &kp R            &kp T                                                               &kp Y            &kp U            &kp I            &kp O            &kp P            &none
 &none            &kp A            &kp S            &kp D            &kp F            &kp G                                                               &kp H            &kp J            &kp K            &kp L            &kp SEMI         &none
 &none            &kp Z            &kp X            &kp C            &kp V            &kp B                                                               &kp N            &kp M            &kp COMMA        &kp DOT          &kp FSLH         &none
-                                                   &hsk LCTRL LALT  &lsk 2 LGUI      &lt 4 ESC                                                           &kp SPACE        &lsk 3 LSHFT >;
+                                                   &hsk LCTRL LALT  &lsk 5 LGUI      &lt 7 ESC                                                           &kp SPACE        &lsk 6 LSHFT >;
         };
         NAV_NUM_5 {
             bindings = <
