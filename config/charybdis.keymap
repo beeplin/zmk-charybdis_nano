@@ -64,7 +64,6 @@
 &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4                     &rgb_ug RGB_SPD  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF
 &bt BT_CLR_ALL   &bt BT_PRV       &bt BT_CLR       &bt BT_NXT       &out OUT_TOG                      &rgb_ug RGB_TOG  &to 0            &to 1            &none            &none
                                   &none            &bootloader      &none                             &none            &bootloader >; };
-    };
         AUTO_MOUSE_6 { bindings = <
 &none            &none            &none            &none            &none                             &none            &none            &none            &none            &none 
 &mkp MB4         &mkp MB5         &mo 8            &mo 7            &none                             &none            &none            &none            &none            &none 
@@ -80,4 +79,5 @@
 &trans           &trans           &trans           &trans           &trans                            &trans           &trans           &trans           &trans           &trans
 &trans           &trans           &trans           &trans           &trans                            &trans           &trans           &trans           &trans           &trans
                                   &trans           &trans           &trans                            &trans           &trans >; };
+    };
 };
