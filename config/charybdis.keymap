@@ -71,7 +71,7 @@
         };
         NAVNUM_5 {
             bindings = <
-&none            &hsk LGUI LGUI   &kp BSPC         &kp UP           &kp DEL          &kp SPACE                                                           &kp INS          &kp N7           &kp N8           &kp N9           &kp LALT         &none
+&none            &hsk LGUI LGUI   &kp BSPC         &kp UP           &kp DEL          &kp PRINTSCREEN                                                     &kp INS          &kp N7           &kp N8           &kp N9           &kp LALT         &none
 &none            &hsk LCTRL LCTRL &kp LEFT         &kp DOWN         &kp RIGHT        &kp PG_UP                                                           &kp HOME         &kp N4           &kp N5           &kp N6           &kp LCTRL        &none
 &none            &hsk LSHFT LSHFT &hsk LALT LALT   &kp TAB          &kp ENTER        &kp PG_DN                                                           &kp END          &kp N1           &kp N2           &kp N3           &kp LSHFT        &none
                                                    &none            &none            &none                                                               &hcw LSHFT CAPS  &kp N0 >;
