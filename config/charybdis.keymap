@@ -29,9 +29,8 @@
 
     keymap {
         compatible = "zmk,keymap";
-        layer0 {
-            label = "COLMAK";
-            trackball-bindings = <&tmv_coarse>;
+        0_COLEMAK {
+            // trackball-bindings = <&tmv_coarse>;
             bindings = <
 &none            &kp Q            &kp W            &kp F            &kp P            &kp B                                                               &kp J            &kp L            &kp U            &kp Y            &kp SEMI         &none
 &none            &kp A            &kp R            &kp S            &kp T            &kp G                                                               &kp M            &kp N            &kp E            &kp I            &kp O            &none
@@ -40,7 +39,7 @@
         };
         layer1 {
             label = "QWERTY";
-            trackball-bindings = <&tmv_coarse>;
+            // trackball-bindings = <&tmv_coarse>;
             bindings = <
 &none            &kp Q            &kp W            &kp E            &kp R            &kp T                                                               &kp Y            &kp U            &kp I            &kp O            &kp P            &none
 &none            &kp A            &kp S            &kp D            &kp F            &kp G                                                               &kp H            &kp J            &kp K            &kp L            &kp SEMI         &none
@@ -49,7 +48,7 @@
         };
         layer2 {
             label = "NAVNUM";
-            trackball-bindings = <&tmv_coarse>;
+            // trackball-bindings = <&tmv_coarse>;
             bindings = <
 &none            &hsk LALT LALT   &kp BSPC         &kp UP           &kp TAB          &kp DEL                                                             &kp INS          &kp N7           &kp N8           &kp N9           &kp LALT         &none
 &none            &hsk LCTRL LCTRL &kp LEFT         &kp DOWN         &kp RIGHT        &kp PG_UP                                                           &kp HOME         &kp N4           &kp N5           &kp N6           &kp LCTRL        &none
@@ -58,7 +57,7 @@
         };
         layer3 {
             label = "SYMBOL";
-            trackball-bindings = <&tmv_coarse>;
+            // trackball-bindings = <&tmv_coarse>;
             bindings = <
 &none            &kp EXCL         &kp AT           &kp POUND        &kp DLLR         &kp PRCNT                                                           &kp CARET        &kp AMPS         &kp ASTRK        &kp PIPE         &kp BSLH         &none
 &none            &kp GRAVE        &kp LBKT         &kp LBRC         &kp LPAR         &kp C_BRI_UP                                                        &kp C_AC_BACK    &kp EQUAL        &kp SQT          &kp DQT          &kp COLON        &none
@@ -67,7 +66,7 @@
         };
         layer4 {
             label = "FUNMSE";
-            trackball-bindings = <&tmv_coarse>;
+            // trackball-bindings = <&tmv_coarse>;
             bindings = <
 &none            &hsk LALT LALT   &kp F9           &kp F8           &kp F7           &kp F12                                                             &kp C_MUTE       &mkp MB4         &mkp MB5         &none            &none            &none
 &none            &hsk LCTRL LCTRL &kp F6           &kp F5           &kp F4           &kp F11                                                             &kp C_VOL_UP     &mkp LCLK        &mkp RCLK        &mkp MCLK        &mo 5            &none
@@ -76,7 +75,7 @@
         };
         layer5 {
             label = "SCROLL";
-            trackball-bindings = <&tsl>;
+            // trackball-bindings = <&tsl>;
             bindings = <
 &trans           &trans           &trans           &trans           &trans           &trans                                                              &trans           &trans           &trans           &trans           &trans           &trans
 &trans           &trans           &trans           &trans           &trans           &trans                                                              &trans           &trans           &trans           &trans           &trans           &trans
@@ -85,7 +84,7 @@
         };
         layer6 {
             label = "SNIPER";
-            trackball-bindings = <&tmv_fine>;
+            // trackball-bindings = <&tmv_fine>;
             bindings = <
 &trans           &trans           &trans           &trans           &trans           &trans                                                              &trans           &trans           &trans           &trans           &trans           &trans
 &trans           &trans           &trans           &trans           &trans           &trans                                                              &trans           &trans           &trans           &trans           &trans           &trans
@@ -94,7 +93,7 @@
         };
         layer7 {
             label = "CONFIG";
-            trackball-bindings = <&tmv_coarse>;
+            // trackball-bindings = <&tmv_coarse>;
             bindings = <
 &none            &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                                                        &rgb_ug RGB_SPI  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_EFR  &none
 &none            &none            &none            &none            &none            &none                                                               &rgb_ug RGB_SPD  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF  &none
