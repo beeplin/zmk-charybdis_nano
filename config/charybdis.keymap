@@ -24,9 +24,9 @@
 &kp Z            &kp X            &kp C            &kp V            &kp B                             &kp N            &kp M            &kp COMMA        &kp DOT          &kp FSLH
                                   &trans           &trans           &trans                            &trans           &trans >; };
         NAV_NUM_2     { bindings = <
-&kp LGUI         &kp HOME         &kp UP           &kp END          &kp INS                           &kp PRINTSCREEN  &kp N7           &kp N8           &kp N9           &kp PLUS
-&kp ESC          &kp LEFT         &kp ENTER        &kp RIGHT        &kp PG_UP                         &kp LSHFT        &kp N4           &kp N5           &kp N6           &kp LALT
-&kp TAB          &kp BSPC         &kp DOWN         &kp DEL          &kp PG_DN                         &kp CAPS         &kp N1           &kp N2           &kp N3           &kp MINUS
+&kp TAB          &kp HOME         &kp DEL          &kp END          &kp INS                           &kp PRINTSCREEN  &kp N7           &kp N8           &kp N9           &kp PLUS
+&kp ESC          &kp BSPC         &kp UP           &kp ENTER        &kp PG_UP                         &kp LSHFT        &kp N4           &kp N5           &kp N6           &kp LALT
+&kp LGUI         &kp LEFT         &kp DOWN         &kp RIGHT        &kp PG_DN                         &kp CAPS         &kp N1           &kp N2           &kp N3           &kp MINUS
                                   &none            &none            &none                             &kp LCTRL        &kp N0 >; };
         MED_BT_FN_3   { bindings = <
 &kp C_MUTE       &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_CLR                        &none            &kp F7           &kp F8           &kp F9           &kp F12 
