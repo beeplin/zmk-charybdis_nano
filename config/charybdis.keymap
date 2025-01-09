@@ -33,23 +33,23 @@
 &kp Z            &kp X            &kp C            &kp V            &kp B                             &kp N            &kp M            &kp COMMA        &kp DOT          &kp FSLH
                                   &trans           &trans           &trans                            &trans           &trans >; };
         NAV_NUM_2 { bindings = <
-&kp HOME         &kp BSPC         &kp UP           &kp DEL          &kp END                           &kp KP_DIVIDE    &kp N7           &kp N8           &kp N9           &kp KP_SUBTRACT
-&kp ESC          &kp LEFT         &kp DOWN         &kp RIGHT        &kp PG_UP                         &kp KP_MULTIPLY  &kp N4           &kp N5           &kp N6           &kp KP_PLUS
-&kp LSHFT        &kp LALT         &kp TAB          &kp ENTER        &kp PG_DN                         &kp INS          &kp N1           &kp N2           &kp N3           &kp KP_DOT
+&kp HOME         &kp BSPC         &kp UP           &kp DEL          &kp END                           &kp PRINTSCREEN  &kp N7           &kp N8           &kp N9           &kp KP_PLUS
+&kp ESC          &kp LEFT         &kp DOWN         &kp RIGHT        &kp PG_UP                         &kp LSHFT        &kp N4           &kp N5           &kp N6           &kp LALT
+&kp LGUI         &kp INS          &kp TAB          &kp ENTER        &kp PG_DN                         &kp K_APP        &kp N1           &kp N2           &kp N3           &kp KP_MINUS
                                   &none            &none            &none                             &kp LCTRL        &kp N0 >; };
         SYMBOL_3 { bindings = <
 &kp EXCL         &kp AT           &kp POUND        &kp DLLR         &kp PRCNT                         &kp CARET        &kp AMPS         &kp ASTRK        &kp PIPE         &kp BSLH
 &kp GRAVE        &kp LBKT         &kp LBRC         &kp LPAR         &kp SQT                           &kp DQT          &kp EQUAL        &kp MINUS        &kp PLUS         &kp COLON
 &kp TILDE        &kp RBKT         &kp RBRC         &kp RPAR         &none                             &none            &kp UNDER        &kp LT           &kp GT           &kp QMARK
-                                  &none            &mo 8            &caps_word                        &none            &none >; };
+                                  &mo 8            &caps_word       &key_repeat                       &none            &none >; };
         MED_FUN_4 { bindings = <
 &kp C_MUTE       &kp C_AC_BACK    &msc SCRL_UP     &kp C_AC_FORWARD &win_shutdown                     &win_restart     &kp F7           &kp F8           &kp F9           &kp F12 
 &kp C_VOL_UP     &msc SCRL_LEFT   &msc SCRL_DOWN   &msc SCRL_RIGHT  &kp C_BRI_UP                      &win_sleep       &kp F4           &kp F5           &kp F6           &kp F11 
 &kp C_VOL_DN     &kp C_PREV       &kp C_PLAY_PAUSE &kp C_NEXT       &kp C_BRI_DN                      &win_hibernate   &kp F1           &kp F2           &kp F3           &kp F10 
-                                  &none            &none            &none                             &kp PRINTSCREEN  &kp K_APP >; };
+                                  &none            &none            &none                             &none            &none >; };
         MOUSE_5 { bindings = <
 &none            &none            &none            &none            &none                             &none            &none            &none            &none            &none
-&kp LSHFT        &kp LALT         &kp LCTRL        &mo 6            &mo 7                             &none            &none            &none            &none            &none
+&kp LALT         &kp LSHFT        &kp LCTRL        &mo 6            &mo 7                             &none            &none            &none            &none            &none
 &none            &none            &mkp MB4         &mkp MB5         &none                             &none            &none            &none            &none            &none
                                   &mkp MCLK        &mkp LCLK        &mkp RCLK                         &none            &none >; };
         SCROLL_6 { bindings = <
