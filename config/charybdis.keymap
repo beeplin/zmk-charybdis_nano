@@ -54,7 +54,7 @@
                                   &mkp MCLK        &mkp LCLK        &mkp RCLK                         &none            &none >; };
         SCROLL_6 { bindings = <
 &none            &trans           &trans           &trans           &trans                            &trans           &trans           &trans           &trans           &trans
-&trans           &trans           &trans           &trans           &trans                            &trans           &trans           &trans           &transs           &trans
+&trans           &trans           &trans           &trans           &trans                            &trans           &trans           &trans           &trans           &trans
 &trans           &trans           &trans           &trans           &trans                            &trans           &trans           &trans           &trans           &trans
                                   &trans           &trans           &trans                            &trans           &trans >; };
         SNIPE_7 { bindings = <
