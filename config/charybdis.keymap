@@ -11,19 +11,13 @@
 
 / {
     behaviors {
-        lsk: layer_sticky_key      { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; };
-        lsl: layer_sticky_layer    { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sl>; };
-        lmk: layer_mouse_key       { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&mkp>; };
-        lcw: layer_caps_word       { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&caps_word>; };
-        hsk: hold_sticky_key       { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; };
-        hsl: hold_sticky_layer     { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sl>; };
-        hmk: hold_mouse_key        { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&mkp>; };
-        hcw: hold_caps_word        { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&caps_word>; };
+        lsk: layer_sticky_key { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; };
+        hsk: hold_sticky_key  { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; };
     };
     macros {
         win_sleep:     win_sleep     { wait-ms = <50>; tap-ms = <5>; compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(X) &kp U &kp S>; };
         win_hibernate: win_hibernate { wait-ms = <50>; tap-ms = <5>; compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(X) &kp U &kp H>; };
-        win_restart:   win_restart   {! wait-ms = <50>; tap-ms = <5>; compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(X) &kp U &kp R>; };
+        win_restart:   win_restart   { wait-ms = <50>; tap-ms = <5>; compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(X) &kp U &kp R>; };
         win_shutdown:  win_shutdown  { wait-ms = <50>; tap-ms = <5>; compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(X) &kp U &kp U>; };
     };
     keymap {
