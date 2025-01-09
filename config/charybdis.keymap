@@ -3,8 +3,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
-#include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/outputs.h>
+// #include <dt-bindings/zmk/rgb.h>
+// #include <dt-bindings/zmk/outputs.h>
 
 &lt {
     flavor = "hold-preferred";
@@ -75,10 +75,10 @@
 &trans           &trans           &trans           &trans           &trans                            &trans           &trans           &trans           &trans           &trans
 &trans           &trans           &trans           &trans           &trans                            &trans           &trans           &trans           &trans           &trans
                                   &trans           &trans           &trans                            &trans           &trans >; };
-        CONFIG_8 { bindings = <
-&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                      &rgb_ug RGB_SPI  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_EFR
-&bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4                     &rgb_ug RGB_SPD  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF
-&bt BT_CLR_ALL   &bt BT_PRV       &bt BT_CLR       &bt BT_NXT       &out OUT_TOG                      &rgb_ug RGB_TOG  &to 0            &to 1            &none            &none
-                                  &none            &bootloader      &none                             &none            &bootloader >; };
+//         CONFIG_8 { bindings = <
+// &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                      &rgb_ug RGB_SPI  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_EFR
+// &bt BT_DISC 0    &bt BT_DISC 1    &bt BT_DISC 2    &bt BT_DISC 3    &bt BT_DISC 4                     &rgb_ug RGB_SPD  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF
+// &bootloader      &bt BT_PRV       &bt BT_CLR       &bt BT_NXT       &out OUT_TOG                      &rgb_ug RGB_TOG  &to 0            &to 1            &none            &bootloader
+//                                   &none            &none            &none                             &none            &none >; };
     };
 };
