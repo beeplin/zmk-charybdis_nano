@@ -3,6 +3,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
 
+#define C_PP C_PLAY_PAUSE
+
 &lt { flavor = "hold-preferred"; };
 &sk { release-after-ms = <2000>; quick-release; lazy; };
 
@@ -29,9 +31,9 @@
 &mt LALT ENTER      &kp TAB             &mkp RCLK           &mkp LCLK           &mkp MCLK               &kp INS             &kp N1              &kp N2              &kp N3              &kp LALT
                                         &mo 3               &none               &mo 4                   &caps_word          &kp LSHFT >; };
         layer3_func_media_bt_scroll { bindings = <
-&mt LGUI F12        &kp F9              &kp F8              &kp F7              &bt BT_SEL 0            &kp C_BRI_UP        &kp PRINTSCREEN     &kp SCROLLLOCK      &kp PAUSE_BREAK     &mt LGUI C_VOL_UP
-&mt LCTRL F11       &kp F6              &kp F5              &kp F4              &bt BT_SEL 1            &kp C_BRI_DN        &kp C_PREV          &kp C_PLAY_PAUSE    &kp C_NEXT          &mt LCTRL C_VOL_DN
-&mt LALT F10        &kp F3              &kp F2              &kp F1              &bt BT_SEL 2            &bt BT_CLR          &kp C_AC_BACK       &kp K_APP           &kp C_AC_FORWARD    &mt LALT C_MUTE
+&kp  F12            &kp F9              &kp F8              &kp F7              &bt BT_SEL 0            &kp C_BRI_UP        &kp PRINTSCREEN     &kp SCROLLLOCK      &kp PAUSE_BREAK     &kp C_VOL_UP
+&kp  F11            &kp F6              &kp F5              &kp F4              &bt BT_SEL 1            &kp C_BRI_DN        &mt LCTRL C_PREV    &mt LSHFT C_PP      &mt LALT C_NEXT     &kp C_VOL_DN
+&kp  F10            &kp F3              &kp F2              &kp F1              &bt BT_SEL 2            &bt BT_CLR          &kp C_AC_BACK       &kp K_APP           &kp C_AC_FORWARD    &kp C_MUTE
                                         &none               &none               &tog 1                  &key_repeat         &kp LSHFT >; };
         layer4_sym_bootloader_snipe { bindings = <
 &kp EXCL            &kp AT              &kp POUND           &kp DLLR            &kp PRCNT               &kp CARET           &kp AMPS            &kp ASTRK           &kp PIPE            &kp BSLH
