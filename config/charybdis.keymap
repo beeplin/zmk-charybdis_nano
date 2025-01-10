@@ -65,9 +65,9 @@
 
         layer3_func_bt_media_scroll {
             bindings = <
-  &kp F12  &kp F9  &kp F8  &kp F7  &bt BT_SEL 0    &kp C_BRI_UP  &kp PRINTSCREEN   &kp SCROLLLOCK  &kp PAUSE_BREAK   &kp C_VOL_UP
+  &kp F12  &kp F9  &kp F8  &kp F7  &bt BT_SEL 2    &kp C_BRI_UP  &kp PRINTSCREEN   &kp SCROLLLOCK  &kp PAUSE_BREAK   &kp C_VOL_UP
   &kp F11  &kp F6  &kp F5  &kp F4  &bt BT_SEL 1    &kp C_BRI_DN  &mt LCTRL C_PREV  &mt LSHFT C_PP  &mt LALT C_NEXT   &kp C_VOL_DN
-  &kp F10  &kp F3  &kp F2  &kp F1  &bt BT_SEL 2    &bt BT_CLR    &kp C_AC_BACK     &kp K_APP       &kp C_AC_FORWARD  &kp C_MUTE
+  &kp F10  &kp F3  &kp F2  &kp F1  &bt BT_SEL 0    &bt BT_CLR    &kp C_AC_BACK     &kp K_APP       &kp C_AC_FORWARD  &kp C_MUTE
                    &none   &none   &tog 1          &none         &key_repeat
             >;
         };
