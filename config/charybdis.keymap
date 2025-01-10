@@ -28,7 +28,7 @@
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
 &mo 2               &mkp MB3            &mkp MB2            &mkp MB1            &trans                  &trans              &mkp MB1            &mkp MB2            &mkp MB3            &mo 2
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
-                                        &trans              &kp LSHFT           &trans                  &trans              &trans >; };
+                                        &trans              &kp LSHFT           &kp LALT                &trans              &trans >; };
         snipe_2 { bindings = <
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
