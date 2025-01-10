@@ -11,6 +11,7 @@
         ls: layer_sticky { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; };
         ms: mod_sticky   { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; };
         mc: mod_capsword { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&caps_word>; };
+        mm: mod_mouse    { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&mkp>; };
     };
     keymap {
         compatible = "zmk,keymap";
@@ -35,9 +36,9 @@
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
                                         &trans              &trans              &trans                  &trans              &trans >; };
         edit_navi_num_3 { bindings = <
-&kp LALT            &kp DEL             &kp TAB             &kp ENTER           &kp SPACE               &kp INS             &kp N7              &kp N8              &kp N9              &kp N0
+&mm LALT MB2        &kp DEL             &kp TAB             &kp ENTER           &kp SPACE               &kp INS             &kp N7              &kp N8              &kp N9              &kp N0
 &mt LCTRL ESC       &kp BSPC            &kp UP              &mkp MB1            &kp PG_UP               &kp HOME            &kp N4              &kp N5              &kp N6              &mt LALT CAPS
-&kp LGUI            &kp LEFT            &kp DOWN            &kp RIGHT           &kp PG_DN               &kp END             &kp N1              &kp N2              &kp N3              &kp N0
+&mm LGUI MB3        &kp LEFT            &kp DOWN            &kp RIGHT           &kp PG_DN               &kp END             &kp N1              &kp N2              &kp N3              &kp N0
                                         &none               &none               &none                   &kp N0              &mc LSHFT C >; };
         scroll_media_config_func_4 { bindings = <
 &mt LALT C_MUTE     &kp PRINTSCREEN     &kp SCROLLLOCK      &kp PAUSE_BREAK     &bt BT_CLR              &bt BT_SEL 0        &kp F7              &kp F8              &kp F9              &kp F12
