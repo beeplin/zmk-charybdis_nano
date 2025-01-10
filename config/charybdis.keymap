@@ -27,8 +27,8 @@
         auto_mouse_1 { bindings = <
 &kp LALT            &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
 &kp LCTRL           &mkp MB3            &mkp MB2            &mkp MB1            &trans                  &trans              &mkp MB1            &mkp MB2            &mkp MB3            &kp LALT
-&kp LGUI            &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
-                                        &mo 4               &kp LSHFT           &mo 2                   &trans              &trans >; };
+&kp LGUI            &trans              &mo 2               &trans              &trans                  &trans              &trans              &trans              &trans              &trans
+                                        &mo 4               &kp LSHFT           &trans                  &trans              &trans >; };
         snipe_2 { bindings = <
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
@@ -50,4 +50,4 @@
 &kp DQT             &kp RBKT            &kp RBRC            &kp RPAR            &bootloader             &bootloader         &kp UNDER           &kp LT              &kp GT              &kp QMARK
                                         &kp LEFT            &kp ENTER           &kp RIGHT               &none               &none >; };
     };
-};563*/+-
+};
