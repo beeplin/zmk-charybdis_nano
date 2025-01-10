@@ -56,10 +56,10 @@
 
         layer2_edit_nav_num_pointer {
             bindings = <
-  &mt LGUI SPACE  &kp BSPC  &kp UP     &kp DEL    &kp PG_UP    &kp HOME   &kp N7     &kp N8  &kp N9  &kp LGUI
-  &mt LCTRL ESC   &kp LEFT  &kp DOWN   &kp RIGHT  &kp PG_DN    &kp END    &kp N4     &kp N5  &kp N6  &kp N0
-  &mt LALT ENTER  &kp TAB   &mkp RCLK  &mkp LCLK  &mkp MCLK    &kp INS    &kp N1     &kp N2  &kp N3  &kp LALT
-                            &mo 3      &none      &mo 4        &kp LCTRL  &kp LSHFT
+  &mt LGUI SPACE  &kp BSPC   &kp UP     &kp DEL    &kp PG_UP    &kp HOME   &kp N7     &kp N8  &kp N9  &kp LGUI
+  &mt LCTRL ESC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN    &kp END    &kp N4     &kp N5  &kp N6  &kp N0
+  &mt LALT ENTER  &mkp RCLK  &mkp MCLK  &mkp LCLK  &kp TAB      &kp INS    &kp N1     &kp N2  &kp N3  &kp LALT
+                             &mo 3      &none      &mo 4        &kp LCTRL  &kp LSHFT
             >;
         };
 
