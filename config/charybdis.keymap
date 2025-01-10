@@ -35,9 +35,9 @@
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
                                         &trans              &trans              &trans                  &trans              &trans >; };
         edit_navi_num_3 { bindings = <
-&mt LALT SPACE      &kp DEL             &kp TAB             &kp HOME            &kp END                 &kp KP_MULTIPLY     &kp N7              &kp N8              &kp N9              &kp KP_PLUS
-&mt LCTRL ESC       &kp BSPC            &kp UP              &kp ENTER           &kp PG_UP               &kp INS             &kp N4              &kp N5              &kp N6              &mt LALT KP_DOT
-&mt LGUI CAPS       &kp LEFT            &kp DOWN            &kp RIGHT           &kp PG_DN               &kp KP_DIVIDE       &kp N1              &kp N2              &kp N3              &kp KP_SUBTRACT
+&mt LALT SPACE      &kp DEL             &kp TAB             &kp HOME            &kp END                 &kp ASTRK           &kp N7              &kp N8              &kp N9              &kp PLUS
+&mt LCTRL ESC       &kp BSPC            &kp UP              &kp ENTER           &kp PG_UP               &kp INS             &kp N4              &kp N5              &kp N6              &mt LALT DOT
+&mt LGUI CAPS       &kp LEFT            &kp DOWN            &kp RIGHT           &kp PG_DN               &kp FSLH            &kp N1              &kp N2              &kp N3              &kp MINUS
                                         &none               &none               &none                   &kp N0              &mc LSHFT C >; };
         scroll_media_config_func_4 { bindings = <
 &mt LALT C_MUTE     &kp C_AC_BACK       &kp K_APP           &kp C_AC_FORWARD    &bt BT_CLR              &bt BT_SEL 0        &kp F7              &kp F8              &kp F9              &kp F12
@@ -50,4 +50,4 @@
 &kp DQT             &kp RBKT            &kp RBRC            &kp RPAR            &bootloader             &bootloader         &kp UNDER           &kp LT              &kp GT              &kp QMARK
                                         &kp LEFT            &kp ENTER           &kp RIGHT               &none               &none >; };
     };
-};
+};563*/+-
