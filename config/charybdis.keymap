@@ -47,6 +47,6 @@
 &kp C_MUTE       &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_CLR                        &none            &kp F7           &kp F8           &kp F9           &kp F12 
 &kp C_VOL_UP     &kp C_PREV       &kp C_PLAY_PAUSE &kp C_NEXT       &kp C_BRI_UP                      &none            &kp F4           &kp F5           &kp F6           &kp F11 
 &kp C_VOL_DN     &kp C_AC_BACK    &kp K_APP        &kp C_AC_FORWARD &kp C_BRI_DN                      &none            &kp F1           &kp F2           &kp F3           &kp F10 
-                                  &none            &none            &none                             &PRINTSCREEN     &tog 1 >; };
+                                  &none            &none            &none                             &none    &tog 1 >; };
     };
 };
