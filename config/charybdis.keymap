@@ -9,6 +9,8 @@
     behaviors {
         ls: layer_sticky { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; };
         ms: mod_sticky   { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; };
+        ls_2_LSHFT_cw_CAPS: ls_2_LSHFT_cw_CAPS { compatible = "zmk,behavior-tap-dance"; #binding-cells = <0>; bindings = <&ls 2 LSHFT>, <&caps_word>, <&kp CAPS>; };
+        ls_4_LALT_LGUI:     ls_4_LALT_LGUI     { compatible = "zmk,behavior-tap-dance"; #binding-cells = <0>; bindings = <&ls 4 LALT>, <&sk LGUI>; };
     };
     keymap {
         compatible = "zmk,keymap";
@@ -16,8 +18,8 @@
 &kp Q               &kp W               &kp F               &kp P               &kp B                   &kp K               &kp L               &kp U               &kp Y               &kp SEMI
 &kp A               &kp R               &kp S               &kp T               &kp G                   &kp M               &kp N               &kp E               &kp I               &kp O
 &kp Z               &kp X               &kp C               &kp D               &kp V                   &kp J               &kp H               &kp COMMA           &kp DOT             &kp FSLH
-                                        &ls 4 LALT          &ls 2 LSHFT         &ms LCTRL LCTRL         &kp SPACE           &ls 3 LGUI >; };
-        layer1_qwerty { bindings = <
+                                        &ls_4_LALT_LGUI     &ls_2_LSHFT_cw_CAPS &ms LCTRL LCTRL         &kp SPACE           &ls 3 ENTER >; };
+    layer1_qwerty { bindings = <
 &kp Q               &kp W               &kp E               &kp R               &kp T                   &kp Y               &kp U               &kp I               &kp O               &kp P
 &kp A               &kp S               &kp D               &kp F               &kp G                   &kp H               &kp J               &kp K               &kp L               &kp SEMI
 &kp Z               &kp X               &kp C               &kp V               &kp B                   &kp N               &kp M               &kp COMMA           &kp DOT             &kp FSLH
