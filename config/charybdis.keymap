@@ -1,41 +1,94 @@
-#include <behaviors.dtsi> 
+#include <dt-bindings/zmk/mouse.h>
+#include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/pointing.h>
 
-&sk { release-after-ms = <5000>; quick-release; lazy; };
+&sk {
+    release-after-ms = <5000>;
+    quick-release;
+    lazy;
+};
 
 / {
     behaviors {
-        ls: layer_sticky { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; };
-        ms: mod_sticky   { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; };
+        ls: layer_sticky {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&sk>;
+        };
+
+        ms: mod_sticky {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&sk>;
+        };
+
+        ls_2_shft_cw_caps: ls_2_shft_cw_caps {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LS_2_SHFT_CW_CAPS";
+            #binding-cells = <0>;
+            bindings = <&ls 2 LSHFT>, <&caps_word>, <&kp CAPS>;
+        };
+
+        ls_4_alt_gui: ls_4_alt_gui {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LS_4_ALT_GUI";
+            #binding-cells = <0>;
+            bindings = <&ls 4 LALT>, <&sk LGUI>;
+        };
     };
+
     keymap {
         compatible = "zmk,keymap";
-        layer0_colemak { bindings = <
-&kp Q               &kp W               &kp F               &kp P               &kp B                   &kp K               &kp L               &kp U               &kp Y               &kp SEMI
-&kp A               &kp R               &kp S               &kp T               &kp G                   &kp M               &kp N               &kp E               &kp I               &kp O
-&kp Z               &kp X               &kp C               &kp D               &kp V                   &kp J               &kp H               &kp COMMA           &kp DOT             &kp FSLH
-                                        &ls 4 LALT          &ls 2 LSHFT         &ms LCTRL LCTRL         &kp SPACE           &ls 3 LGUI >; };
-        layer1_qwerty { bindings = <
-&kp Q               &kp W               &kp E               &kp R               &kp T                   &kp Y               &kp U               &kp I               &kp O               &kp P
-&kp A               &kp S               &kp D               &kp F               &kp G                   &kp H               &kp J               &kp K               &kp L               &kp SEMI
-&kp Z               &kp X               &kp C               &kp V               &kp B                   &kp N               &kp M               &kp COMMA           &kp DOT             &kp FSLH
-                                        &trans              &trans              &trans                  &trans              &trans >; };
-        layer2_edit_nav_num_pointer { bindings = <
-&mt LGUI SPACE      &kp BSPC            &kp UP              &kp DEL             &kp PG_UP               &kp HOME            &kp N7              &kp N8              &kp N9              &kp LGUI
-&mt LCTRL ESC       &kp LEFT            &kp DOWN            &kp RIGHT           &kp PG_DN               &kp END             &kp N4              &kp N5              &kp N6              &kp N0
-&mt LALT ENTER      &mkp RCLK           &mkp MCLK           &mkp LCLK           &kp TAB                 &kp INS             &kp N1              &kp N2              &kp N3              &kp LALT
-                                        &mo 4               &none               &mo 3                   &kp LCTRL           &kp LSHFT >; };
-        layer3_sym_bootloader_snipe { bindings = <
-&kp EXCL            &kp AT              &kp POUND           &kp DLLR            &kp PRCNT               &kp CARET           &kp AMPS            &kp ASTRK           &kp PIPE            &kp BSLH
-&kp SQT             &kp LBKT            &kp LBRC            &kp LPAR            &kp GRAVE               &kp TILDE           &kp EQUAL           &kp MINUS           &kp PLUS            &kp COLON
-&kp DQT             &kp RBKT            &kp RBRC            &kp RPAR            &bootloader             &bootloader         &kp UNDER           &kp LT              &kp GT              &kp QMARK
-                                        &kp CAPS            &kp ENTER           &caps_word              &none               &none >; };
-        layer4_func_bt_media_scroll { bindings = <
-&kp F12             &kp F9              &kp F8              &kp F7              &bt BT_SEL 2            &kp C_BRI_UP        &kp PSCRN           &kp SLCK            &kp PAUSE_BREAK     &kp C_VOL_UP
-&kp F11             &kp F6              &kp F5              &kp F4              &bt BT_SEL 1            &kp C_BRI_DN        &mt LCTRL C_PREV    &mt LSHFT C_PP      &mt LALT C_NEXT     &kp C_VOL_DN
-&kp F10             &kp F3              &kp F2              &kp F1              &bt BT_SEL 0            &bt BT_CLR          &kp C_AC_BACK       &kp K_APP           &kp C_AC_FORWARD    &kp C_MUTE
-                                        &none               &none               &tog 1                  &none               &key_repeat >; };
+
+        layer0_colemak {
+            bindings = <
+  &kp Q  &kp W  &kp F       &kp P        &kp B              &kp K      &kp L       &kp U      &kp Y    &kp SEMI
+  &kp A  &kp R  &kp S       &kp T        &kp G              &kp M      &kp N       &kp E      &kp I    &kp O
+  &kp Z  &kp X  &kp C       &kp D        &kp V              &kp J      &kp H       &kp COMMA  &kp DOT  &kp FSLH
+                &ls 4 LALT  &ls 2 LSHFT  &ms LCTRL LCTRL    &kp SPACE  &ls 3 LGUI
+            >;
+        };
+
+        layer1_qwerty {
+            bindings = <
+  &kp Q  &kp W  &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I      &kp O    &kp P
+  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L    &kp SEMI
+  &kp Z  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH
+                &trans  &trans  &trans    &trans  &trans
+            >;
+        };
+
+        layer2_edit_nav_num_pointer {
+            bindings = <
+  &mt LGUI SPACE  &kp BSPC   &kp UP     &kp DEL    &kp PG_UP    &kp HOME   &kp N7     &kp N8  &kp N9  &kp LGUI
+  &mt LCTRL ESC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN    &kp END    &kp N4     &kp N5  &kp N6  &kp N0
+  &mt LALT ENTER  &mkp RCLK  &mkp MCLK  &mkp LCLK  &kp TAB      &kp INS    &kp N1     &kp N2  &kp N3  &kp LALT
+                             &mo 4      &none      &mo 3        &kp LCTRL  &kp LSHFT
+            >;
+        };
+
+        layer3_sym_bootloader_snipe {
+            bindings = <
+  &kp EXCL  &kp AT    &kp POUND  &kp DLLR   &kp PRCNT      &kp CARET    &kp AMPS   &kp ASTRK  &kp PIPE  &kp BSLH
+  &kp SQT   &kp LBKT  &kp LBRC   &kp LPAR   &kp GRAVE      &kp TILDE    &kp EQUAL  &kp MINUS  &kp PLUS  &kp COLON
+  &kp DQT   &kp RBKT  &kp RBRC   &kp RPAR   &bootloader    &bootloader  &kp UNDER  &kp LT     &kp GT    &kp QMARK
+                      &kp CAPS   &kp ENTER  &caps_word     &none        &none
+            >;
+        };
+
+        layer4_func_bt_media_scroll {
+            bindings = <
+  &kp F12  &kp F9  &kp F8  &kp F7  &bt BT_SEL 2    &kp C_BRI_UP  &kp PSCRN         &kp SLCK        &kp PAUSE_BREAK   &kp C_VOL_UP
+  &kp F11  &kp F6  &kp F5  &kp F4  &bt BT_SEL 1    &kp C_BRI_DN  &mt LCTRL C_PREV  &mt LSHFT C_PP  &mt LALT C_NEXT   &kp C_VOL_DN
+  &kp F10  &kp F3  &kp F2  &kp F1  &bt BT_SEL 0    &bt BT_CLR    &kp C_AC_BACK     &kp K_APP       &kp C_AC_FORWARD  &kp C_MUTE
+                   &none   &none   &tog 1          &none         &key_repeat
+            >;
+        };
     };
 };
