@@ -9,8 +9,8 @@
     behaviors {
         ls: layer_sticky { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; };
         ms: mod_sticky   { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; };
-        ls_2_LSHFT_cw_CAPS: ls_2_LSHFT_cw_CAPS { compatible = "zmk,behavior-tap-dance"; #binding-cells = <0>; bindings = <&ls 2 LSHFT>, <&caps_word>, <&kp CAPS>; };
-        ls_4_LALT_LGUI:     ls_4_LALT_LGUI     { compatible = "zmk,behavior-tap-dance"; #binding-cells = <0>; bindings = <&ls 4 LALT>, <&sk LGUI>; };
+        ls_2_LSHFT_cw_CAPS { compatible = "zmk,behavior-tap-dance"; #binding-cells = <0>; bindings = <&ls 2 LSHFT>, <&caps_word>, <&kp CAPS>; };
+        ls_4_LALT_LGUI     { compatible = "zmk,behavior-tap-dance"; #binding-cells = <0>; bindings = <&ls 4 LALT>, <&sk LGUI>; };
     };
     keymap {
         compatible = "zmk,keymap";
