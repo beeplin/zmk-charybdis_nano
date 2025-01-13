@@ -31,7 +31,7 @@
 &kp EXCL            &kp AT              &kp POUND           &kp DLLR            &kp PRCNT               &kp CARET           &kp AMPS            &kp ASTRK           &kp MINUS           &kp EQUAL
 &kp GRAVE           &kp DQT             &kp SQT             &kp COLON           &kp QMARK               &kp BSLH            &kp LT              &kp LBKT            &kp LBRC            &kp LPAR
 &kp TILDE           &kp RBRC            &kp RPAR            &kp UNDER           &kp PLUS                &kp PIPE            &kp GT              &kp RBKT            &kp RBRC            &kp RPAR
-                                        &kp LALT            &caps_word          &kp LCTRL               &none               &none >; };
+                                        &kp LALT            &kp LCTRL           &caps_word              &none               &none >; };
         layer4_func_config_media_scroll { bindings = <
 &kp F12             &kp F9              &kp F8              &kp F7              &bt BT_SEL 2            &bt BT_SEL 4        &kp C_BRI_UP        &kp C_VOL_DN        &kp C_VOL_UP        &kp C_MUTE
 &kp F11             &kp F6              &kp F5              &kp F4              &bt BT_SEL 1            &bt BT_SEL 3        &mt LCTRL C_BRI_DN  &mt LSHFT C_PREV    &mt LALT C_NEXT     &mt LGUI C_PP
