@@ -9,6 +9,7 @@
     behaviors {
         ls: layer_sticky { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; };
         ms: mod_sticky   { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; };
+        mm: mod_mouse    { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&mkp>; };
     };
     keymap {
         compatible = "zmk,keymap";
@@ -25,7 +26,7 @@
         layer2_edit_nav_pointer_num { bindings = <
 &mt LGUI CAPS       &kp BSPC            &kp UP              &kp DEL             &kp PG_UP               &kp HOME            &kp N7              &kp N8              &kp N9              &kp PLUS
 &mt LCTRL ESC       &kp LEFT            &kp DOWN            &kp RIGHT           &kp PG_DN               &kp END             &kp N4              &kp N5              &kp N6              &kp N0
-&mt LALT ENTER      &mkp RCLK           &mkp MCLK           &mkp LCLK           &kp TAB                 &kp INS             &kp N1              &kp N2              &kp N3              &kp LALT
+&mm LALT RCLK       &mkp MCLK           &mkp LCLK           &kp ENTER           &kp TAB                 &kp INS             &kp N1              &kp N2              &kp N3              &kp LALT
                                         &mo 4               &none               &mo 3                   &kp LGUI            &kp LSHFT >; };
         layer3_symbol_snipe { bindings = <
 &kp EXCL            &kp AT              &kp POUND           &kp DLLR            &kp PRCNT               &kp CARET           &kp AMPS            &kp ASTRK           &kp MINUS           &kp EQUAL
