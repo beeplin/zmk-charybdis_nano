@@ -36,6 +36,6 @@
 &kp F12             &kp F9              &kp F8              &kp F7              &bt BT_SEL 2            &bt BT_SEL 4        &kp C_BRI_UP        &kp C_VOL_DN        &kp C_VOL_UP        &kp C_MUTE
 &kp F11             &kp F6              &kp F5              &kp F4              &bt BT_SEL 1            &bt BT_SEL 3        &mt LCTRL C_BRI_DN  &mt LSHFT C_PREV    &mt LALT C_NEXT     &mt LGUI C_PP
 &kp F10             &kp F3              &kp F2              &kp F1              &bt BT_SEL 0            &bt BT_CLR          &kp K_APP           &kp PSCRN           &kp SLCK            &kp PAUSE_BREAK
-                                        &none               &none               &bootloader             &bootloader         &tog 1    >; };
+                                        &none               &none               &bootloader             &bootloader         &tog 1 >; };
     };
 };
