@@ -5,7 +5,7 @@ manifest:
     - name: inorichi
       url-base: https://github.com/inorichi
   projects:
-    - name: zmkfirmware-default_report
+    - name: zmk
       remote: zmkfirmware
       revision: feat/pointers-move-scroll
       import: app/west.yml
