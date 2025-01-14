@@ -5,9 +5,13 @@ manifest:
     - name: inorichi
       url-base: https://github.com/inorichi
   projects:
+    # - name: zmk
+    #   remote: zmkfirmware
+    #   revision: feat/pointers-move-scroll
+    #   import: app/west.yml
     - name: zmk
-      remote: zmkfirmware
-      revision: feat/pointers-move-scroll
+      url: https://github.com/sky-bro/zmk
+      revision: k4i-sweep-kbd
       import: app/west.yml
     - name: zmk-pmw3610-driver
       remote: inorichi
