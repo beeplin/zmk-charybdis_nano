@@ -1,13 +1,13 @@
 manifest:
   remotes:
-    - name: beeplin
-      url-base: https://github.com/beeplin
+    - name: zmkfirmware
+      url-base: https://github.com/petejohanson
     - name: inorichi
       url-base: https://github.com/inorichi
   projects:
     - name: zmk
-      remote: beeplin
-      revision: charybdis-nano
+      remote: zmkfirmware
+      revision: feat/pointers-move-scroll
       import: app/west.yml
     - name: zmk-pmw3610-driver
       remote: inorichi
