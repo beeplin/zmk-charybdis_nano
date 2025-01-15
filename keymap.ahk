@@ -1,6 +1,8 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
+SetCapsLockState
+
 *CapsLock:: Send "{LControl down}"
 *CapsLock up::
 {

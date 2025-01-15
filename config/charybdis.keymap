@@ -34,7 +34,7 @@
                                         &none               &none               &none                   &kp LSHFT           &kp LGUI >; };
         layer3_symbol_snipe { bindings = <
 &kp EXCL            &kp AT              &kp POUND           &kp DLLR            &kp PRCNT               &kp CARET           &kp AMPS            &kp ASTRK           &kp MINUS           &kp EQUAL
-&kp COLON           &kp PIPE            &kp LBRC            &kp RBRC            &kp GRAVE               &kp DQT             &kp LPAR            &kp RPAR            &kp UNDER           &kp SQT
+&kp COLON           &kp DQT             &kp LBRC            &kp RBRC            &kp GRAVE               &kp PIPE            &kp LPAR            &kp RPAR            &kp UNDER           &kp SQT
 &kp QMARK           &kp BSLH            &kp LT              &kp GT              &kp TILDE               &kp PLUS            &kp LBKT            &kp RBKT            &none               &none
                                         &kp LGUI            &kp LALT            &kp LCTRL               &none               &none >; };
         layer4_func_media { bindings = <
