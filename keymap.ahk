@@ -54,7 +54,7 @@ RShift::/
 
 ; layer 2 - edit nav num
 
-Space & Tab::LWin
+Space & Tab:: return
 Space & q::LAlt
 Space & w::BackSpace
 Space & e::Up
@@ -97,11 +97,13 @@ Space & m::CapsLock
 Space & ,::1
 Space & .::2
 Space & /::3
-Space & RShift::RShift
+Space & RShift:: return
 
 ; layer 3 - symbol
 
->+Tab::LWin
+>+Space:: return
+
+>+Tab:: return
 >+q::!
 >+w::@
 >+e::#
@@ -147,7 +149,8 @@ Space & RShift::RShift
 
 ; layer 4 - func media
 
-Tab & Space::LWin
+Tab & Space:: return
+
 Tab & q::LAlt
 Tab & w::F9
 Tab & e::F8
@@ -186,8 +189,8 @@ Tab & '::RControl
 Tab & Enter::RControl
 
 Tab & n:: return
-Tab & m::Sleep
+Tab & m:: return
 Tab & ,::PrintScreen
 Tab & .::ScrollLock
 Tab & /:: Pause
-Tab & RShift::RShift
+Tab & RShift:: return
