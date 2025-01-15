@@ -40,7 +40,7 @@
         layer4_func_media { bindings = <
 &kp LALT            &kp F9              &kp F8              &kp F7              &kp F12                 &kp C_BRI_UP        &kp C_MUTE          &kp C_VOL_DN        &kp C_VOL_UP        &kp LALT
 &kp LCTRL           &kp F6              &kp F5              &kp F4              &kp F11                 &kp C_BRI_DN        &mt LCTRL C_PP      &mt LSHFT C_PREV    &mt LALT C_NEXT     &kp LCTRL
-&kp LSHFT           &kp F3              &kp F2              &kp F1              &kp F10                 &kp K_CALC          &kp PSCRN           &kp SLCK            &kp PAUSE_BREAK     &kp LSHFT
+&kp LSHFT           &kp F3              &kp F2              &kp F1              &kp F10                 &kp C_AL_CALC       &kp PSCRN           &kp SLCK            &kp PAUSE_BREAK     &kp LSHFT
                                         &none               &none               &mo 5                   &kp LSHFT           &kp LGUI >; };
         layer5_config { bindings = <
 &bt BT_SEL 0        &bt BT_SEL 1        &bt BT_SEL 2        &bt BT_SEL 3        &bt BT_SEL 4            &rgb_ug RGB_SPI     &rgb_ug RGB_HUI     &rgb_ug RGB_SAI     &rgb_ug RGB_BRI     &rgb_ug RGB_EFR
