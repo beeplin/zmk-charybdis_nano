@@ -24,8 +24,8 @@
                                         &ls 4 LGUI          &lt 2 SPACE         &kp LCTRL               &kp LSHFT           &lt 3 SPACE >; };
         layer1_auto_mouse_pointer { bindings = <
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
-&trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &mo 2
-&trans              &mkp RCLK           &mkp MCLK           &mkp LCLK           &trans                  &trans              &mkp LCLK           &mkp MCLK           &mkp RCLK           &mo 4
+&trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
+&trans              &trans              &trans              &trans               &trans                 &trans              &mkp LCLK           &mkp MCLK           &mkp RCLK           &trans
                                         &trans              &trans              &trans                  &trans              &trans >; };
         layer2_edit_nav_num_scroll { bindings = <
 &ms LALT LALT       &kp BSPC            &kp UP              &kp DEL             &kp PG_UP               &kp K_APP           &kp N7              &kp N8              &kp N9              &kp LALT
