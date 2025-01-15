@@ -56,7 +56,7 @@ RShift::/
 
 ; layer 2 - edit nav num
 
-Space & Tab:: return
+Space & Tab::LWin
 Space & q::LAlt
 Space & w::BackSpace
 Space & e::Up
