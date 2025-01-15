@@ -36,7 +36,7 @@
 &kp COLON           &kp PIPE            &kp LBRC            &kp RBRC            &kp GRAVE               &kp DQT             &kp LPAR            &kp RPAR            &kp UNDER           &kp SQT
 &kp QMARK           &kp BSLH            &kp LT              &kp GT              &kp TILDE               &kp PLUS            &kp LBKT            &kp RBKT            &none               &none
                                         &kp LGUI            &kp LALT            &kp LCTRL               &none               &none >; };
-        layer4_func_config_media { bindings = <
+        layer4_func_media { bindings = <
 &kp LALT            &kp F9              &kp F8              &kp F7              &kp F12                 &kp C_BRI_UP        &kp C_MUTE          &kp C_VOL_DN        &kp C_VOL_UP        &kp LALT
 &kp LCTRL           &kp F6              &kp F5              &kp F4              &kp F11                 &kp C_BRI_DN        &mt LCTRL C_PP      &mt LSHFT C_PREV    &mt LALT C_NEXT     &kp LCTRL
 &kp LSHFT           &kp F3              &kp F2              &kp F1              &kp F10                 &kp K_CALC          &kp PSCRN           &kp SLCK            &kp PAUSE_BREAK     &kp LSHFT
@@ -45,8 +45,6 @@
 &bt BT_SEL 0        &bt BT_SEL 1        &bt BT_SEL 2        &bt BT_SEL 3        &bt BT_SEL 4            &rgb_ug RGB_SPI     &rgb_ug RGB_HUI     &rgb_ug RGB_SAI     &rgb_ug RGB_BRI     &rgb_ug RGB_EFR 
 &bt BT_DISC 0       &bt BT_DISC 1       &bt BT_DISC 2       &bt BT_DISC 3       &bt BT_DISC 4           &rgb_ug RGB_SPD     &rgb_ug RGB_HUD     &rgb_ug RGB_SAD     &rgb_ug RGB_BRD     &rgb_ug RGB_EFF 
 &bt BT_CLR          &none               &none               &none               &out OUT_TOG            &rgb_ug RGB_TOG     &bl BL_TOG          &bl BL_CYCLE        &none               &none
-                                        &none               &bootloader         &none                   &none               &bootloader >;                       // &default_report     &studio_unlock
-
-        };
+                                        &none               &bootloader         &none                   &none               &bootloader >; };                   // &default_report     &studio_unlock
     };
 };
