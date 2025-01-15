@@ -27,9 +27,9 @@
 &trans              &trans              &trans              &trans              &trans                  &trans              &mkp LCLK           &mkp MCLK           &mkp RCLK           &mo 4
                                         &trans              &trans              &trans                  &trans              &trans >; };
         layer2_edit_nav_num_scroll { bindings = <
-&ms LALT LALT       &kp BSPC            &kp UP              &kp DEL             &kp PG_UP               &kp K_APP           &kp N7              &kp N8              &kp N9              &kp LALT
+&ms LALT LALT       &kp BSPC            &kp UP              &kp DEL             &kp PG_UP               &kp INS             &kp N7              &kp N8              &kp N9              &kp LALT
 &mt LCTRL ESC       &kp LEFT            &kp DOWN            &kp RIGHT           &kp TAB                 &kp CAPS            &kp N4              &kp N5              &kp N6              &kp N0
-&mt LSHFT INS       &kp HOME            &kp END             &kp ENTER           &kp PG_DN               &caps_word          &kp N1              &kp N2              &kp N3              &kp LSHFT
+&mt LSHFT K_APP     &kp HOME            &kp END             &kp ENTER           &kp PG_DN               &caps_word          &kp N1              &kp N2              &kp N3              &kp LSHFT
                                         &none               &none               &none                   &kp LSHFT           &kp LGUI >; };
         layer3_symbol_snipe { bindings = <
 &kp EXCL            &kp AT              &kp POUND           &kp DLLR            &kp PRCNT               &kp CARET           &kp AMPS            &kp ASTRK           &kp MINUS           &kp EQUAL
