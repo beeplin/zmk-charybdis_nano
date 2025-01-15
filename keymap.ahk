@@ -3,6 +3,8 @@
 
 SetCapsLockState 'AlwaysOff'
 
+RAlt::LAlt
+
 ; layer 1 - wide colemak_dh_jk
 
 Space::Space
@@ -130,8 +132,8 @@ Space & RShift:: return
 >+o::*
 >+p::-
 >+[::=
->+]::RShift
->+\::RWin
+>+]:: return
+>+\:: return
 
 >+h:: return
 >+j::|
@@ -178,7 +180,7 @@ Tab & o::Volume_Down
 Tab & p::Volume_Up
 Tab & [::LAlt
 Tab & ]::RShift
-Tab & \::RWin
+Tab & \:: return
 
 Tab & h:: return
 Tab & j:: return
