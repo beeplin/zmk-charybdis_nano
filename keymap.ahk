@@ -1,91 +1,86 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
-SetCapsLockState 'AlwaysOff'
+; wide qwerty
+y::\
+u::y
+i::u
+o::i
+p::o
+[::p
+]::[
+\::]
+h::Enter
+j::h
+k::j
+l::k
+`;::l
+'::`;
+Enter::'
+n::RShift
+m::n
+,::m
+.::,
+/::.
+RShift::/
 
-RAlt::LAlt
-
-; layer 1 - wide colemak_dh_jk
-
-Space::Space
-
-Tab::Tab
-q::q
-w::w
+; wide colemak_dh_jk. remove if not needed
 e::f
 r::p
 t::b
-
-CapsLock::LControl
-a::a
-s::r
-d::s
-f::t
-g::g
-
-LShift::LShift
-z::z
-x::x
-c::c
-v::d
-b::v
-
-y::[
 u::k
 i::l
 o::u
 p::y
 [::;
-]::-
-\::=
-
-h::]
+s::r
+d::s
+f::t
 j::m
 k::n
 l::e
 `;::i
 '::o
-Enter::'
-
-n::_
+v::d
+b::v
 m::j
 ,::h
-.::,
-/::.
-RShift::/
 
-; layer 2 - edit nav num
+; capslock -> ctrl & esc
+SetCapsLockState 'AlwaysOff'
+*CapsLock:: Send "{LControl down}"
+*CapsLock up::
+{
+    Send "{LControl Up}"
+    if (A_PriorKey == "CapsLock") {
+        if (A_TimeSincePriorHotkey < 1000)
+            Suspend "1"
+        Send "{Esc}"
+        Suspend "0"
+    }
+}
 
-Space & Tab::LWin
-Space & q::LAlt
+; edit nav num
+Space::Space
+Space & Tab::LAlt
+Space & q::LWin
 Space & w::BackSpace
 Space & e::Up
 Space & r::Delete
 Space & t::PgUp
-
-Space & CapsLock::LControl
-Space & a::Escape
-Space & s::Left
-Space & d::Down
-Space & f::Right
-Space & g::Tab
-
-Space & LShift::LShift
-Space & z::Insert
-Space & x::Home
-Space & c::End
-Space & v::Enter
-Space & b::PgDn
-
 Space & y:: return
 Space & u::AppsKey
 Space & i::7
 Space & o::8
 Space & p::9
-Space & [::LAlt
+Space & [::RWin
 Space & ]::RShift
-Space & \::RWin
-
+Space & \::LAlt
+Space & a::Escape
+Space & s::Left
+Space & d::Down
+Space & f::Right
+Space & g::Tab
 Space & h:: return
 Space & j::CapsLock
 Space & k::4
@@ -93,106 +88,106 @@ Space & l::5
 Space & `;::6
 Space & '::0
 Space & Enter::RControl
-
+Space & z::Insert
+Space & x::Home
+Space & c::End
+Space & v::Enter
+Space & b::PgDn
 Space & n:: return
 Space & m::CapsLock
 Space & ,::1
 Space & .::2
 Space & /::3
-Space & RShift:: return
+Space & RShift::RShift
 
 ; layer 3 - symbol
-
->+Space:: return
-
->+Tab:: return
->+q::!
->+w::@
->+e::#
->+r::$
->+t::%
-
->+CapsLock::LControl
->+a:::
->+s::"
->+d::`{
->+f::}
->+g::`
-
->+LShift::LShift
->+z::?
->+x::\
->+c::<
->+v::>
->+b::~
-
->+y:: return
->+u::^
->+i::&
->+o::*
->+p::-
->+[::=
->+]:: return
->+\:: return
-
->+h:: return
->+j::|
->+k::(
->+l::)
->+`;::_
->+'::'
->+Enter::RControl
-
->+n:: return
->+m::+
->+,::[
->+.::]
->+/:: return
+>!Tab:: return
+>!q::!
+>!w::@
+>!e::#
+>!r::$
+>!t::%
+>!y:: return
+>!u::^
+>!i::&
+>!o::*
+>!p::-
+>![::=
+>!]:: return
+>!\:: return
+>!CapsLock::LControl
+>!a:::
+>!s::"
+>!d::`{
+>!f::}
+>!g::`
+>!h:: return
+>!j::|
+>!k::(
+>!l::)
+>!`;::_
+>!'::'
+>!Enter::RControl
+>!LShift::LShift
+>!z::?
+>!x::\
+>!c::<
+>!v::>
+>!b::~
+>!n:: return
+>!m::+
+>!,::[
+>!.::]
+>!/:: return
 
 ; layer 4 - func media
 
-Tab & Space:: return
+<!Space:: return
+<!q::LAlt
+<!w::F9
+<!e::F8
+<!r::F7
+<!t::F12
+<!y:: return
+<!u:: return
+<!i::Volume_Mute
+<!o::Volume_Down
+<!p::Volume_Up
+<![::LAlt
+<!]::RShift
+<!\:: return
+<!CapsLock::LControl
+<!a::LControl
+<!s::F6
+<!d::F5
+<!f::F4
+<!g::F11
+<!h:: return
+<!j:: return
+<!k::Media_Play_Pause
+<!l::Media_Prev
+<!`;::Media_Next
+<!'::RControl
+<!Enter::RControl
+<!LShift::LShift
+<!z::LShift
+<!x::F3
+<!c::F2
+<!v::F1
+<!b::F10
+<!n:: return
+<!m:: return
+<!,::PrintScreen
+<!.::ScrollLock
+<!/:: Pause
+<!RShift:: return
 
-Tab & q::LAlt
-Tab & w::F9
-Tab & e::F8
-Tab & r::F7
-Tab & t::F12
-
-Tab & CapsLock::LControl
-Tab & a::LControl
-Tab & s::F6
-Tab & d::F5
-Tab & f::F4
-Tab & g::F11
-
-Tab & LShift::LShift
-Tab & z::LShift
-Tab & x::F3
-Tab & c::F2
-Tab & v::F1
-Tab & b::F10
-
-Tab & y:: return
-Tab & u:: return
-Tab & i::Volume_Mute
-Tab & o::Volume_Down
-Tab & p::Volume_Up
-Tab & [::LAlt
-Tab & ]::RShift
-Tab & \:: return
-
-Tab & h:: return
-Tab & j:: return
-Tab & k::Media_Play_Pause
-Tab & l::Media_Prev
-Tab & `;::Media_Next
-Tab & '::RControl
-Tab & Enter::RControl
-
-Tab & n:: return
-Tab & m:: return
-Tab & ,::PrintScreen
-Tab & .::ScrollLock
-Tab & /:: Pause
-Tab & RShift:: return
+; extra symbol remaps based on layers. remove if not needed
+y::BackSpace
+]::-
+\::=
+n::_
+-::Volume_Down
+=::Volume_Up
+BackSpace::Volume_Mute
+Delete::^w
