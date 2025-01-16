@@ -55,7 +55,35 @@ RShift::/
 Tab::LWin
 <!Tab::AltTab
 
-; edit nav num
+; fix for layer 4 alt+fx. must before all layer detinitions
+#HotIf (GetKeyState("LAlt", "P") && !GetKeyState("Space", "P"))
+q & w::!F9
+q & e::!F8
+q & r::!F7
+q & t::!F12
+q & s::!F6
+q & d::!F5
+q & f::!F4
+q & g::!F11
+q & x::!F3
+q & c::!F2
+q & v::!F1
+q & b::!F10
+[ & w::!F9
+[ & e::!F8
+[ & r::!F7
+[ & t::!F12
+[ & s::!F6
+[ & d::!F5
+[ & f::!F4
+[ & g::!F11
+[ & x::!F3
+[ & c::!F2
+[ & v::!F1
+[ & b::!F10
+#HotIf
+
+; layer 2 - edit nav num
 Space::Space
 Space & q::LAlt
 Space & w::BackSpace
@@ -95,7 +123,7 @@ Space & /::3
 Space & RShift::RShift
 
 ; layer 3 - symbol
-RAlt::RAlt
+RAlt:: return
 >!q::!
 >!w::@
 >!e::#
@@ -134,8 +162,8 @@ RAlt::RAlt
 >!RShift::?
 
 ; layer 4 - func media
-LAlt::a
-<!q::LAlt
+LAlt:: return
+; LAlt & q::LAlt
 <!w::F9
 <!e::F8
 <!r::F7
@@ -145,7 +173,7 @@ LAlt::a
 <!i::Volume_Mute
 <!o::Volume_Down
 <!p::Volume_Up
-<![::LAlt
+; <![::LAlt
 <!]::RShift
 <!\::RWin
 <!a::LControl
