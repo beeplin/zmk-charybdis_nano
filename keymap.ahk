@@ -47,16 +47,30 @@ m::j
 ,::h
 
 ; capslock -> ctrl & esc
+prefix := ""
 SetCapsLockState 'AlwaysOff'
-*CapsLock:: Send "{LControl down}"
+*CapsLock:: {
+    Send "{LControl down}"
+    global prefix
+    if (GetKeyState("LControl", "P") || GetKeyState("RControl", "P"))
+        prefix := prefix "^"
+    if (GetKeyState("LShift") || GetKeyState("RShift"))
+        prefix := prefix "+"
+    if (GetKeyState("LAlt", "P") || GetKeyState("RAlt", "P"))
+        prefix := prefix "!"
+    if (GetKeyState("LWin", "P") || GetKeyState("RWin", "P"))
+        prefix := prefix "#"
+}
 *CapsLock up::
 {
     Send "{LControl Up}"
+    global prefix
     if (A_PriorKey == "CapsLock") {
         if (A_TimeSincePriorHotkey < 1000)
             Suspend "1"
-        Send "{Esc}"
+        Send prefix "{Escape}"
         Suspend "0"
+        prefix := ""
     }
 }
 
@@ -104,6 +118,7 @@ Space & /::3
 Space & RShift::RShift
 
 ; layer 3 - symbol
+RAlt:: return
 >!q::!
 >!w::@
 >!e::#
@@ -142,6 +157,7 @@ Space & RShift::RShift
 >!RShift::?
 
 ; layer 4 - func media
+LAlt:: return
 <!q::LAlt
 <!w::F9
 <!e::F8
