@@ -163,7 +163,7 @@ RAlt:: return
 
 ; layer 4 - func media
 LAlt:: return
-; LAlt & q::LAlt
+LAlt & q::LAlt ; see fix above
 <!w::F9
 <!e::F8
 <!r::F7
@@ -173,7 +173,7 @@ LAlt:: return
 <!i::Volume_Mute
 <!o::Volume_Down
 <!p::Volume_Up
-; <![::LAlt
+<![::LAlt ; see fix above
 <!]::RShift
 <!\::RWin
 <!a::LControl
