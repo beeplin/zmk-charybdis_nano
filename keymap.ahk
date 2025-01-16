@@ -1,6 +1,33 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
+; capslock -> ctrl & esc
+SetCapsLockState 'AlwaysOff'
+prefix := ""
+*CapsLock:: {
+    Send "{LControl down}"
+    global prefix
+    if (GetKeyState("LControl", "P") || GetKeyState("RControl", "P"))
+        prefix := prefix "^"
+    if (GetKeyState("LShift") || GetKeyState("RShift"))
+        prefix := prefix "+"
+    if (GetKeyState("LAlt", "P") || GetKeyState("RAlt", "P"))
+        prefix := prefix "!"
+    if (GetKeyState("LWin", "P") || GetKeyState("RWin", "P"))
+        prefix := prefix "#"
+}
+*CapsLock up:: {
+    Send "{LControl Up}"
+    global prefix
+    if (A_PriorKey == "CapsLock") {
+        if (A_TimeSincePriorHotkey < 1000)
+            Suspend "1"
+        Send prefix "{Escape}"
+        Suspend "0"
+        prefix := ""
+    }
+}
+
 ; wide qwerty
 y::\
 u::y
@@ -23,56 +50,6 @@ m::n
 .::,
 /::.
 RShift::/
-
-; wide colemak_dh_jk. remove if not needed
-e::f
-r::p
-t::b
-u::k
-i::l
-o::u
-p::y
-[::;
-s::r
-d::s
-f::t
-j::m
-k::n
-l::e
-`;::i
-'::o
-v::d
-b::v
-m::j
-,::h
-
-; capslock -> ctrl & esc
-prefix := ""
-SetCapsLockState 'AlwaysOff'
-*CapsLock:: {
-    Send "{LControl down}"
-    global prefix
-    if (GetKeyState("LControl", "P") || GetKeyState("RControl", "P"))
-        prefix := prefix "^"
-    if (GetKeyState("LShift") || GetKeyState("RShift"))
-        prefix := prefix "+"
-    if (GetKeyState("LAlt", "P") || GetKeyState("RAlt", "P"))
-        prefix := prefix "!"
-    if (GetKeyState("LWin", "P") || GetKeyState("RWin", "P"))
-        prefix := prefix "#"
-}
-*CapsLock up::
-{
-    Send "{LControl Up}"
-    global prefix
-    if (A_PriorKey == "CapsLock") {
-        if (A_TimeSincePriorHotkey < 1000)
-            Suspend "1"
-        Send prefix "{Escape}"
-        Suspend "0"
-        prefix := ""
-    }
-}
 
 ; tab -> win, preserve alt-tab
 Tab::LWin
@@ -118,7 +95,7 @@ Space & /::3
 Space & RShift::RShift
 
 ; layer 3 - symbol
-RAlt:: return
+RAlt::RAlt
 >!q::!
 >!w::@
 >!e::#
@@ -157,7 +134,7 @@ RAlt:: return
 >!RShift::?
 
 ; layer 4 - func media
-LAlt:: return
+LAlt::a
 <!q::LAlt
 <!w::F9
 <!e::F8
@@ -194,6 +171,28 @@ LAlt:: return
 <!.::ScrollLock
 <!/:: Pause
 <!RShift::RShift
+
+; wide colemak_dh_jk. remove if not needed
+e::f
+r::p
+t::b
+u::k
+i::l
+o::u
+p::y
+[::;
+s::r
+d::s
+f::t
+j::m
+k::n
+l::e
+`;::i
+'::o
+v::d
+b::v
+m::j
+,::h
 
 ; extra symbol remaps based on layers. remove if not needed
 y::BackSpace
