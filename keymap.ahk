@@ -123,9 +123,9 @@ Space & RShift::RShift
 >!f::`{
 >!g::}
 >!h:: return
->!j::|
+>!j::)
 >!k::(
->!l::)
+>!l::|
 >!`;::+
 >!':::
 >!Enter::RControl
