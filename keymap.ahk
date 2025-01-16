@@ -60,10 +60,13 @@ SetCapsLockState 'AlwaysOff'
     }
 }
 
+; tab -> win, preserve alt-tab
+Tab::LWin
+<!Tab::AltTab
+
 ; edit nav num
 Space::Space
-Space & Tab::LAlt
-Space & q::LWin
+Space & q::LAlt
 Space & w::BackSpace
 Space & e::Up
 Space & r::Delete
@@ -73,9 +76,9 @@ Space & u::AppsKey
 Space & i::7
 Space & o::8
 Space & p::9
-Space & [::RWin
+Space & [::LAlt
 Space & ]::RShift
-Space & \::LAlt
+Space & \::RWin
 Space & a::Escape
 Space & s::Left
 Space & d::Down
@@ -101,7 +104,6 @@ Space & /::3
 Space & RShift::RShift
 
 ; layer 3 - symbol
->!Tab:: return
 >!q::!
 >!w::@
 >!e::#
@@ -113,36 +115,34 @@ Space & RShift::RShift
 >!o::*
 >!p::-
 >![::=
->!]:: return
->!\:: return
->!CapsLock::LControl
->!a:::
+>!]::LShift
+>!\::LWin
+>!a::'
 >!s::"
->!d::`{
->!f::}
->!g::`
+>!d::`
+>!f::`{
+>!g::}
 >!h:: return
 >!j::|
 >!k::(
 >!l::)
->!`;::_
->!'::'
+>!`;::+
+>!':::
 >!Enter::RControl
->!LShift::LShift
->!z::?
->!x::\
->!c::<
->!v::>
->!b::~
+>!z::\
+>!x::|
+>!c::~
+>!v::[
+>!b::]
 >!n:: return
->!m::+
->!,::[
->!.::]
->!/:: return
+>!m::>
+>!,::_
+>!.::<
+>!/::>
+>!RShift::?
 
 ; layer 4 - func media
 
-<!Space:: return
 <!q::LAlt
 <!w::F9
 <!e::F8
@@ -187,7 +187,7 @@ y::BackSpace
 ]::-
 \::=
 n::_
--::Volume_Down
-=::Volume_Up
-BackSpace::Volume_Mute
+; -::Volume_Down
+; =::Volume_Up
+; BackSpace::Volume_Mute
 Delete::^w
