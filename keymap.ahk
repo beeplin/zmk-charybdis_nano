@@ -115,8 +115,8 @@ Space & RShift::RShift
 >!o::*
 >!p::-
 >![::=
->!]::LShift
->!\::LWin
+>!]::RShift
+>!\::RWin
 >!a::'
 >!s::"
 >!d::`
@@ -142,7 +142,6 @@ Space & RShift::RShift
 >!RShift::?
 
 ; layer 4 - func media
-
 <!q::LAlt
 <!w::F9
 <!e::F8
@@ -155,8 +154,7 @@ Space & RShift::RShift
 <!p::Volume_Up
 <![::LAlt
 <!]::RShift
-<!\:: return
-<!CapsLock::LControl
+<!\::RWin
 <!a::LControl
 <!s::F6
 <!d::F5
@@ -169,7 +167,6 @@ Space & RShift::RShift
 <!`;::Media_Next
 <!'::RControl
 <!Enter::RControl
-<!LShift::LShift
 <!z::LShift
 <!x::F3
 <!c::F2
@@ -180,14 +177,11 @@ Space & RShift::RShift
 <!,::PrintScreen
 <!.::ScrollLock
 <!/:: Pause
-<!RShift:: return
+<!RShift::RShift
 
 ; extra symbol remaps based on layers. remove if not needed
 y::BackSpace
 ]::-
 \::=
 n::_
-; -::Volume_Down
-; =::Volume_Up
-; BackSpace::Volume_Mute
 Delete::^w
