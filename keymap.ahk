@@ -55,7 +55,7 @@ RShift::/
 Tab::LWin
 <!Tab::AltTab
 
-; fix for layer 4 alt+fx. must before all layer detinitions
+; fix for layer 4 alt+fx. must be above all layer detinitions
 #HotIf (GetKeyState("LAlt", "P") && !GetKeyState("Space", "P"))
 q & w::!F9
 q & e::!F8
@@ -163,7 +163,7 @@ RAlt:: return
 
 ; layer 4 - func media
 LAlt:: return
-LAlt & q::LAlt ; see fix above
+<!q::LAlt ; see fix above
 <!w::F9
 <!e::F8
 <!r::F7
