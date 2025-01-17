@@ -1,232 +1,274 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
+key_map := { a: "1", b: "2", c: "asdf", d: "{ScrollLock}", ScrollLock: "d" }
 
-; capslock -> ctrl & esc
-SetCapsLockState 'AlwaysOff'
-prefix := ""
-*CapsLock:: {
-    Send "{LControl down}"
-    global prefix
-    if (GetKeyState("LControl", "P") || GetKeyState("RControl", "P"))
-        prefix := prefix "^"
-    if (GetKeyState("LShift") || GetKeyState("RShift"))
-        prefix := prefix "+"
-    if (GetKeyState("LAlt", "P") || GetKeyState("RAlt", "P"))
-        prefix := prefix "!"
-    if (GetKeyState("LWin", "P") || GetKeyState("RWin", "P"))
-        prefix := prefix "#"
+RAlt::
+for key in key_map {
+    Hotkey, $%key%, hotkey_label, On
 }
-*CapsLock up:: {
-    Send "{LControl Up}"
-    global prefix
-    if (A_PriorKey == "CapsLock") {
-        if (A_TimeSincePriorHotkey < 1000)
-            Suspend "1"
-        Send prefix "{Escape}"
-        Suspend "0"
-        prefix := ""
+return
+
+RAlt Up::
+for key in key_map {
+    Hotkey, $%key%, Off
+}
+return
+
+hotkey_label:
+    Send, %key_map[SubStr(A_ThisHotkey, 2)]
+    returnD
+    a := "
+(Join
+    a b c
+     d e f
+)"
+    b := "
+(Join
+     1   2  3 
+       4  5   6
+)"
+    loop {
+        a := StrReplace(a, "  ", " ", , &Count)
+        if (Count = 0)
+            break
     }
-}
+    loop {
+        b := StrReplace(b, "  ", " ", , &Count)
+        if (Count = 0)
+            break
+    }
+    aa := StrSplit(a, " ")
+    bb := StrSplit(b, " ")
 
-; wide qwerty
-y::\
-u::y
-i::u
-o::i
-p::o
-[::p
-]::[
-\::]
-h::Enter
-j::h
-k::j
-l::k
-`;::l
-'::`;
-Enter::'
-n::RShift
-m::n
-,::m
-.::,
-/::.
-RShift::/
+    for i, v in aa
+        MsgBox(i Trim(v) Trim(bb[i]))
 
-; tab -> win, preserve alt-tab
-Tab::LWin
-<!Tab::AltTab
+    ; capslock -> ctrl & esc
+    SetCapsLockState 'AlwaysOff'
+    prefix := ""
+    *CapsLock:: {
+        Send "{LControl down}"
+        global prefix
+        if (GetKeyState("LControl", "P") || GetKeyState("RControl", "P"))
+            prefix := prefix "^"
+        if (GetKeyState("LShift") || GetKeyState("RShift"))
+            prefix := prefix "+"
+        if (GetKeyState("LAlt", "P") || GetKeyState("RAlt", "P"))
+            prefix := prefix "!"
+        if (GetKeyState("LWin", "P") || GetKeyState("RWin", "P"))
+            prefix := prefix "#"
+    }
+    *CapsLock up:: {
+        Send "{LControl Up}"
+        global prefix
+        if (A_PriorKey == "CapsLock") {
+            if (A_TimeSincePriorHotkey < 1000)
+                Suspend "1"
+            Send prefix "{Escape}"
+            Suspend "0"
+            prefix := ""
+        }
+    }
 
-; fix for layer 4 alt+fx. must be above all layer detinitions
-#HotIf (GetKeyState("LAlt", "P") && !GetKeyState("Space", "P"))
-q & w::!F9
-q & e::!F8
-q & r::!F7
-q & t::!F12
-q & s::!F6
-q & d::!F5
-q & f::!F4
-q & g::!F11
-q & x::!F3
-q & c::!F2
-q & v::!F1
-q & b::!F10
-[ & w::!F9
-[ & e::!F8
-[ & r::!F7
-[ & t::!F12
-[ & s::!F6
-[ & d::!F5
-[ & f::!F4
-[ & g::!F11
-[ & x::!F3
-[ & c::!F2
-[ & v::!F1
-[ & b::!F10
-#HotIf
+    ; wide qwerty
+    y::\
+    u::y
+    i::u
+    o::i
+    p::o
+    [::p
+    ]::[
+    \::]
+    h::Enter
+    j::h
+    k::j
+    l::k
+    `;::l
+    '::`;
+    Enter::'
+    n::RShift
+    m::n
+    ,::m
+    .::,
+    /::.
+    RShift::/
 
-; layer 2 - edit nav num
-Space::Space
-Space & q::LAlt
-Space & w::BackSpace
-Space & e::Up
-Space & r::Delete
-Space & t::PgUp
-Space & y:: return
-Space & u::AppsKey
-Space & i::7
-Space & o::8
-Space & p::9
-Space & [::LAlt
-Space & ]::RShift
-Space & \::RWin
-Space & a::Escape
-Space & s::Left
-Space & d::Down
-Space & f::Right
-Space & g::Tab
-Space & h:: return
-Space & j::CapsLock
-Space & k::4
-Space & l::5
-Space & `;::6
-Space & '::0
-Space & Enter::RControl
-Space & z::Insert
-Space & x::Home
-Space & c::End
-Space & v::Enter
-Space & b::PgDn
-Space & n:: return
-Space & m::CapsLock
-Space & ,::1
-Space & .::2
-Space & /::3
-Space & RShift::RShift
+    ; tab -> win, preserve alt-tab
+    Tab::LWin
+    <!Tab::AltTab
 
-; layer 3 - symbol
-RAlt:: return
->!q::!
->!w::@
->!e::#
->!r::$
->!t::%
->!y:: return
->!u::^
->!i::&
->!o::*
->!p::-
->![::=
->!]::RShift
->!\::RWin
->!a::'
->!s::"
->!d::`
->!f::`{
->!g::}
->!h:: return
->!j::)
->!k::(
->!l::|
->!`;::+
->!':::
->!Enter::RControl
->!z::\
->!x::|
->!c::~
->!v::[
->!b::]
->!n:: return
->!m::>
->!,::_
->!.::<
->!/::>
->!RShift::?
+    ; fix for layer 4 alt+fx. must be above all layer detinitions
+    #HotIf (GetKeyState("LAlt", "P") && !GetKeyState("Space", "P"))
+    q & w::!F9
+    q & e::!F8
+    q & r::!F7
+    q & t::!F12
+    q & s::!F6
+    q & d::!F5
+    q & f::!F4
+    q & g::!F11
+    q & x::!F3
+    q & c::!F2
+    q & v::!F1
+    q & b::!F10
+    [ & w::!F9
+    [ & e::!F8
+    [ & r::!F7
+    [ & t::!F12
+    [ & s::!F6
+    [ & d::!F5
+    [ & f::!F4
+    [ & g::!F11
+    [ & x::!F3
+    [ & c::!F2
+    [ & v::!F1
+    [ & b::!F10
+    #HotIf
 
-; layer 4 - func media
-LAlt:: return
-<!q::LAlt ; see fix above
-<!w::F9
-<!e::F8
-<!r::F7
-<!t::F12
-<!y:: return
-<!u:: return
-<!i::Volume_Mute
-<!o::Volume_Down
-<!p::Volume_Up
-<![::LAlt ; see fix above
-<!]::RShift
-<!\::RWin
-<!a::LControl
-<!s::F6
-<!d::F5
-<!f::F4
-<!g::F11
-<!h:: return
-<!j:: return
-<!k::Media_Play_Pause
-<!l::Media_Prev
-<!`;::Media_Next
-<!'::RControl
-<!Enter::RControl
-<!z::LShift
-<!x::F3
-<!c::F2
-<!v::F1
-<!b::F10
-<!n:: return
-<!m:: return
-<!,::PrintScreen
-<!.::ScrollLock
-<!/:: Pause
-<!RShift::RShift
+    ; layer 2 - edit nav num
+    Space::Space
+    Space & q::LAlt
+    Space & w::BackSpace
+    Space & e::Up
+    Space & r::Delete
+    Space & t::PgUp
+    Space & y:: return
+    Space & u::AppsKey
+    Space & i::7
+    Space & o::8
+    Space & p::9
+    Space & [::LAlt
+    Space & ]::RShift
+    Space & \::RWin
+    Space & a::Escape
+    Space & s::Left
+    Space & d::Down
+    Space & f::Right
+    Space & g::Tab
+    Space & h:: return
+    Space & j::CapsLock
+    Space & k::4
+    Space & l::5
+    Space & `;::6
+    Space & '::0
+    Space & Enter::RControl
+    Space & z::Insert
+    Space & x::Home
+    Space & c::End
+    Space & v::Enter
+    Space & b::PgDn
+    Space & n:: return
+    Space & m::CapsLock
+    Space & ,::1
+    Space & .::2
+    Space & /::3
+    Space & RShift::RShift
 
-; wide colemak_dh_jk. remove if not needed
-e::f
-r::p
-t::b
-u::k
-i::l
-o::u
-p::y
-[::;
-s::r
-d::s
-f::t
-j::m
-k::n
-l::e
-`;::i
-'::o
-v::d
-b::v
-m::j
-,::h
-$^v::^v ; keep ^v
-$^b::^d ; for keeping ^v
+    ; layer 3 - symbol
+    RAlt:: return
+    >!q::!
+    >!w::@
+    >!e::#
+    >!r::$
+    >!t::%
+    >!y:: return
+    >!u::^
+    >!i::&
+    >!o::*
+    >!p::-
+    >![::=
+    >!]::RShift
+    >!\::RWin
+    >!a::'
+    >!s::"
+    >!d::`
+    >!f::`{
+    >!g::}
+    >!h:: return
+    >!j::)
+    >!k::(
+    >!l::|
+    >!`;::+
+    >!':::
+    >!Enter::RControl
+    >!z::\
+    >!x::|
+    >!c::~
+    >!v::[
+    >!b::]
+    >!n:: return
+    >!m::>
+    >!,::_
+    >!.::<
+    >!/::>
+    >!RShift::?
 
-; extra symbol remaps based on layers. remove if not needed
-y::BackSpace
-]::-
-\::=
-n::_
-Delete::^w
+    ; layer 4 - func media
+    LAlt:: return
+    <!q::LAlt ; see fix above
+    <!w::F9
+    <!e::F8
+    <!r::F7
+    <!t::F12
+    <!y:: return
+    <!u:: return
+    <!i::Volume_Mute
+    <!o::Volume_Down
+    <!p::Volume_Up
+    <![::LAlt ; see fix above
+    <!]::RShift
+    <!\::RWin
+    <!a::LControl
+    <!s::F6
+    <!d::F5
+    <!f::F4
+    <!g::F11
+    <!h:: return
+    <!j:: return
+    <!k::Media_Play_Pause
+    <!l::Media_Prev
+    <!`;::Media_Next
+    <!'::RControl
+    <!Enter::RControl
+    <!z::LShift
+    <!x::F3
+    <!c::F2
+    <!v::F1
+    <!b::F10
+    <!n:: return
+    <!m:: return
+    <!,::PrintScreen
+    <!.::ScrollLock
+    <!/:: Pause
+    <!RShift::RShift
+
+    ; wide colemak_dh_jk. remove if not needed
+    e::f
+    r::p
+    t::b
+    u::k
+    i::l
+    o::u
+    p::y
+    [::;
+    s::r
+    d::s
+    f::t
+    j::m
+    k::n
+    l::e
+    `;::i
+    '::o
+    v::d
+    b::v
+    m::j
+    ,::h
+    $^v::^v ; keep ^v
+    $^b::^d ; for keeping ^v
+
+    ; extra symbol remaps based on layers. remove if not needed
+    y::BackSpace
+    ]::-
+    \::=
+    n::_
+    Delete::^w
