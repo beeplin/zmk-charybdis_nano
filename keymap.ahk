@@ -1,61 +1,250 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
-A_MaxHotkeysPerInterval := 200
+get_modifiers(*) {
+    prefix := ""
+    if (GetKeyState("LControl", "P") || GetKeyState("RControl", "P"))
+        prefix := prefix "^"
+    if (GetKeyState("LShift", "P") || GetKeyState("RShift", "P"))
+        prefix := prefix "+"
+    if ((GetKeyState("LAlt", "P") || GetKeyState("RAlt", "P")) && (GetKeyState("q", "P") || GetKeyState("[", "P")))
+        prefix := prefix "!"
+    if (GetKeyState("LWin", "P") || GetKeyState("RWin", "P"))
+        prefix := prefix "#"
+    return prefix
+}
 
-layer_0_wide_qwerty := create_layer("
-(
-    LWin q w e r t \      y u i o p [ ]
-         a s d f g Enter  h j k l ; '
-         z x c v b RShift n m , . /
-)"
-)
+; capslock -> ctrl & esc
+SetCapsLockState 'AlwaysOff'
+prefix_for_esc := ""
+*CapsLock:: {
+    Send "{LCtrl down}"
+    global prefix_for_esc
+    prefix_for_esc := get_modifiers()
+}
+*CapsLock up:: {
+    Send "{LCtrl Up}"
+    global prefix_for_esc
+    if (A_PriorKey = "CapsLock") {
+        if (A_TimeSincePriorHotkey < 1000)
+            Suspend "1"
+        Send prefix_for_esc "{Esc}"
+        Suspend "0"
+        prefix_for_esc := ""
+    }
+}
 
-layer_1_wide_colemak_dhm_jk := create_layer("
-(
-    LWin q w f p b \      k l u y ; [ ]
-         a r s t g Enter  m n e i o '
-         z x c d v RShift j h , . /
-)"
-)
+; wide qwerty
+y::\
+u::y
+i::u
+o::i
+p::o
+[::p
+]::[
+\::]
+h::Enter
+j::h
+k::j
+l::k
+`;::l
+'::`;
+Enter::'
+n::RShift
+m::n
+,::m
+.::,
+/::.
+RShift::/
 
-layer_2_wide_edit_nav_num := create_layer("
-(
-    LWin LAlt BS   Up   Del   PgUp \ AppsKey  7 8 9 LAlt RShift RWin
-         Esc  Left Down Right Tab  \ CapsLock 4 5 6 0    RControl
-         Ins  Home End  Enter PgDn \ CapsLock 1 2 3 RShift
-)"
-)
+; tab -> win, preserve alt-tab
+Tab::LWin
+<!Tab::AltTab
 
-layer_3_wide_symbol := create_layer("
-(
-    LWin ! @ #  $ % \ ^ & * | \ RShift RWin
-         ' " `` { } \ ) ( = - + RControl
-         ? \ ~  [ ] \ > _ < > ?
-)"
-)
+; fix for layer 4 alt+fx. must be above all layer detinitions
+#HotIf (GetKeyState("LAlt", "P") && !GetKeyState("Space", "P"))
+q & w::!F9
+q & e::!F8
+q & r::!F7
+q & t::!F12
+q & s::!F6
+q & d::!F5
+q & f::!F4
+q & g::!F11
+q & x::!F3
+q & c::!F2
+q & v::!F1
+q & b::!F10
+[ & w::!F9
+[ & e::!F8
+[ & r::!F7
+[ & t::!F12
+[ & s::!F6
+[ & d::!F5
+[ & f::!F4
+[ & g::!F11
+[ & x::!F3
+[ & c::!F2
+[ & v::!F1
+[ & b::!F10
+#HotIf
 
-layer_4_wide_func_media := create_layer("
-(
-    LWin LAlt     F9 F8 F7 F12 \ \ Volume_Mute      Volume_Down Volume_Up  LAlt     RShift RWin
-         LControl F6 F5 F4 F11 \ \ Media_Play_Pause Media_Prev  Media_Next RControl RControl
-         LShift   F3 F2 F1 F10 \ \ PrintScreen      ScrollLock  Pause      RShift
-)"
-)
+; layer 2 - edit nav num
+Space::Space
+Space & q::LAlt
+Space & w::BackSpace
+Space & e::Up
+Space & r::Delete
+Space & t::PgUp
+Space & y:: return
+Space & u::AppsKey
+Space & i::7
+Space & o::8
+Space & p::9
+Space & [::LAlt
+Space & ]::RShift
+Space & \::RWin
+Space & a::Escape
+Space & s::Left
+Space & d::Down
+Space & f::Right
+Space & g::Tab
+Space & h:: return
+Space & j::CapsLock
+Space & k::4
+Space & l::5
+Space & `;::6
+Space & '::0
+Space & Enter::RControl
+Space & z::Insert
+Space & x::Home
+Space & c::End
+Space & v::Enter
+Space & b::PgDn
+Space & n:: return
+Space & m::CapsLock
+Space & ,::1
+Space & .::2
+Space & /::3
+Space & RShift::RShift
 
-layer_qwerty := create_layer("
-(
-    LWin q w e r t y u i o p [ ] \
-         a s d f g h j k l ; ' Enter
-         z x c v b n m , . / RShift
-)"
-)
+; layer 3 - symbol with ralt
+RAlt:: return
+>!q::!
+>!w::@
+>!e::#
+>!r::$
+>!t::%
+>!y:: return
+>!u::^
+>!i::&
+>!o::*
+>!p::-
+>![::=
+>!]::RShift
+>!\::RWin
+>!a::`
+>!s::-
+>!d::=
+>!f::`{
+>!g::}
+>!h:: return
+>!j::)
+>!k::(
+>!l::'
+>!`;::"
+>!':::
+>!Enter::RControl
+>!z::~
+>!x::\
+>!c::|
+>!v::[
+>!b::]
+>!n:: return
+>!m::+
+>!,::_
+>!.::<
+>!/::>
+>!RShift::?
 
-layer_default := layer_1_wide_colemak_dhm_jk
-layer_default := layer_qwerty
+; layer 3 - symbol with rshift
+RShift:: return
+>+q::!
+>+w::@
+>+e::#
+>+r::$
+>+t::%
+>+y:: return
+>+u::^
+>+i::&
+>+o::*
+>+p::-
+>+[::=
+>+]::RShift
+>+\::RWin
+>+a::`
+>+s::-
+>+d::=
+>+f::`{
+>+g::}
+>+h:: return
+>+j::)
+>+k::(
+>+l::'
+>+`;::"
+>+':::
+>+Enter::RControl
+>+z::~
+>+x::\
+>+c::|
+>+v::[
+>+b::]
+>+n:: return
+>+m::+
+>+,::_
+>+.::<
+>+/::>
+
+; layer 4 - func media
+LAlt:: return
+<!q::LAlt ; see fix above
+<!w::F9
+<!e::F8
+<!r::F7
+<!t::F12
+<!y:: return
+<!u:: return
+<!i::Volume_Mute
+<!o::Volume_Down
+<!p::Volume_Up
+<![::LAlt ; see fix above
+<!]::RShift
+<!\::RWin
+<!a::LControl
+<!s::F6
+<!d::F5
+<!f::F4
+<!g::F11
+<!h:: return
+<!j:: return
+<!k::Media_Play_Pause
+<!l::Media_Prev
+<!`;::Media_Next
+<!'::RControl
+<!Enter::RControl
+<!z::LShift
+<!x::F3
+<!c::F2
+<!v::F1
+<!b::F10
+<!n:: return
+<!m:: return
+<!,::PrintScreen
+<!.::ScrollLock
+<!/:: Pause
+<!RShift::RShift
 
 ; wide colemak_dh_jk. remove if not needed
-Tab::LWin
 e::f
 r::p
 t::b
@@ -76,109 +265,14 @@ v::d
 b::v
 m::j
 ,::h
-.::,
-/::.
-RShift::/
 $^v::^v ; keep ^v
 $^b::^d ; for keeping ^v
 $#v::#v ; keep ^v
 $#b::#d ; for keeping ^v
 
-Space:: setup_layer(layer_2_wide_edit_nav_num, "Space")
-Space Up:: setup_layer(layer_default, "Space", "Up")
-
-RAlt:: setup_layer(layer_3_wide_symbol, "RAlt")
-RAlt Up:: setup_layer(layer_default, "RAlt", "Up")
-
-; RShift:: setup_layer(layer_3_wide_symbol, "RShift")
-; RShift Up:: setup_layer(layer_default, "RShift", "Up")
-
-LAlt:: setup_layer(layer_4_wide_func_media, "LAlt")
-LAlt Up:: setup_layer(layer_default, "LAlt", "Up")
-
-; capslock -> control & esc
-SetCapsLockState 'AlwaysOff'
-prefix_for_esc := ""
-*CapsLock:: {
-    Send "{LControl Down}"
-    global prefix_for_esc
-    prefix_for_esc := get_modifiers()
-}
-*CapsLock Up:: {
-    Send "{LControl Up}"
-    global prefix_for_esc
-    if (A_PriorKey = "CapsLock") {
-        if (A_TimeSincePriorHotkey < 1000)
-            Suspend "1"
-        Send prefix_for_esc "{Esc}"
-        Suspend "0"
-        prefix_for_esc := ""
-    }
-}
-
-create_layer(str) {
-    str := StrReplace(str, "`n", " ")
-    loop {
-        str := StrReplace(str, "  ", " ", , &Count)
-        if (Count = 0)
-            break
-    }
-    return StrSplit(str, " ")
-}
-
-prefix_when_press := {}
-
-setup_layer(layer, leader, status := "Down") {
-    toggle_layer(layer, status)
-    if (status = "Up") {
-        if (A_PriorKey = leader) {
-            if (A_TimeSincePriorHotkey < 1000)
-                Suspend "1"
-            global prefix_when_press
-            Send prefix_when_press.%leader% "{" leader "}"
-            prefix_when_press.%leader% := ""
-            Suspend "0"
-        }
-    }
-    else {
-        global prefix_when_press
-        prefix_when_press.%leader% := get_modifiers()
-    }
-}
-
-toggle_layer(layer, status) {
-    for index, key in layer_qwerty {
-        if (status = "Up") {
-            Hotkey key, "Off"
-        }
-        else {
-            Hotkey key, (k) => send_layered_key(k, layer), "On"
-        }
-    }
-    return 0
-}
-
-send_layered_key(key, layer) {
-    result := get_modifiers() "{" layer[index_of_key.%key%] "}"
-    MsgBox result
-    Send result
-}
-
-get_modifiers() {
-    prefix := ""
-    if (GetKeyState("LControl", "P") || GetKeyState("RControl", "P"))
-        prefix := "^"
-    if (GetKeyState("LShift", "P") || GetKeyState("RShift", "P"))
-        prefix := prefix "+"
-    if ((GetKeyState("LAlt", "P") || GetKeyState("RAlt", "P")) && (GetKeyState("q", "P") || GetKeyState("[", "P")))
-        prefix := prefix "!"
-    if (GetKeyState("LWin", "P") || GetKeyState("RWin", "P"))
-        prefix := prefix "#"
-    return prefix
-}
-
-index_of_key := {
-    Tab: 1, q: 2, w: 3, e: 4, r: 5, t: 6, y: 7, u: 8, i: 9, o: 10, p: 11, %"["%: 12, %"]"%: 13, %"\"%: 14,
-    a: 15, s: 16, d: 17, f: 18, g: 19, h: 20, j: 21, k: 22, l: 23, %";"%: 24, %"'"%: 25, Enter: 26,
-    z: 27, x: 28, c: 29, v: 30, b: 31, n: 32, m: 33, %","%: 34, %"."%: 35, %"/"%: 36, RShift: 37,
-}
+; extra symbol remaps based on layers. remove if not needed
+y::BackSpace
+]::-
+\::=
+n::_
+Delete::^w
