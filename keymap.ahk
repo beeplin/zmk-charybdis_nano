@@ -168,7 +168,6 @@ RAlt:: return
 >!RShift::?
 
 ; layer 3 - symbol with rshift
-RShift:: return
 >+q::!
 >+w::@
 >+e::#
