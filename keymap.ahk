@@ -264,10 +264,10 @@ v::d
 b::v
 m::j
 ,::h
-$^v::^v ; keep ^v
-$^b::^d ; for keeping ^v
-$#v::#v ; keep ^v
-$#b::#d ; for keeping ^v
+; $^v::^v ; keep ^v
+; $^b::^d ; for keeping ^v
+; $#v::#v ; keep ^v
+; $#b::#d ; for keeping ^v
 
 ; extra symbol remaps based on layers. remove if not needed
 y::BackSpace
