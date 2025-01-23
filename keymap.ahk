@@ -205,7 +205,7 @@ c::F2
 v::F1
 b::F10
 n:: return
-m:: return
+m::Launch_App2
 ,::PrintScreen
 .::ScrollLock
 /:: Pause
