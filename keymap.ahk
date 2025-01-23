@@ -1,7 +1,8 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
+; #UseHook true
 
-get_modifiers(*) {
+get_modifiers() {
     prefix := ""
     if (GetKeyState("LControl", "P") || GetKeyState("RControl", "P"))
         prefix := prefix "^"
@@ -14,15 +15,35 @@ get_modifiers(*) {
     return prefix
 }
 
+prefixes := {}
+
+hold_tap_down(hold, tap) {
+    Send "{%hold% Down}"
+    global prefixes
+    prefixes.%tap% := get_modifiers()
+}
+
+hold_tap_up(hold, tap, physical) {
+    Send "{%hold% Up}"
+    global prefixes
+    if (A_PriorKey = physical) {
+        if (A_TimeSincePriorHotkey < 1000)
+            Suspend "1"
+        Send prefixes.%tap% "{%tap%}"
+        Suspend "0"
+        prefixes.%tap% := ""
+    }
+}
+
 ; capslock -> ctrl & esc
 SetCapsLockState 'AlwaysOff'
 prefix_for_esc := ""
 *CapsLock:: {
-    Send "{LCtrl down}"
+    Send "{LCtrl Down}"
     global prefix_for_esc
     prefix_for_esc := get_modifiers()
 }
-*CapsLock up:: {
+*CapsLock Up:: {
     Send "{LCtrl Up}"
     global prefix_for_esc
     if (A_PriorKey = "CapsLock") {
@@ -34,6 +55,24 @@ prefix_for_esc := ""
     }
 }
 
+; enter -> ctrl & enter
+prefix_for_enter := ""
+*Enter:: {
+    Send "{RCtrl Down}"
+    global prefix_for_enter
+    prefix_for_enter := get_modifiers()
+}
+*Enter Up:: {
+    Send "{RCtrl Up}"
+    global prefix_for_enter
+    if (A_PriorKey = "Enter") {
+        if (A_TimeSincePriorHotkey < 1000)
+            Suspend "1"
+        Send prefix_for_enter "{Enter}"
+        Suspend "0"
+        prefix_for_enter := ""
+    }
+}
 ; wide qwerty
 y::\
 u::y
@@ -43,51 +82,18 @@ p::o
 [::p
 ]::[
 \::]
-h::Enter
+h::'
 j::h
 k::j
 l::k
 `;::l
 '::`;
-Enter::'
 n::RShift
 m::n
 ,::m
 .::,
 /::.
 RShift::/
-
-; tab -> win, preserve alt-tab
-Tab::LWin
-<!Tab::AltTab
-
-; fix for layer 4 alt+fx. must be above all layer detinitions
-#HotIf (GetKeyState("LAlt", "P") && !GetKeyState("Space", "P"))
-q & w::!F9
-q & e::!F8
-q & r::!F7
-q & t::!F12
-q & s::!F6
-q & d::!F5
-q & f::!F4
-q & g::!F11
-q & x::!F3
-q & c::!F2
-q & v::!F1
-q & b::!F10
-[ & w::!F9
-[ & e::!F8
-[ & r::!F7
-[ & t::!F12
-[ & s::!F6
-[ & d::!F5
-[ & f::!F4
-[ & g::!F11
-[ & x::!F3
-[ & c::!F2
-[ & v::!F1
-[ & b::!F10
-#HotIf
 
 ; layer 2 - edit nav num
 Space::Space
@@ -102,8 +108,6 @@ Space & i::7
 Space & o::8
 Space & p::9
 Space & [::LAlt
-Space & ]::RShift
-Space & \::RWin
 Space & a::Escape
 Space & s::Left
 Space & d::Down
@@ -128,120 +132,118 @@ Space & .::2
 Space & /::3
 Space & RShift::RShift
 
-; layer 3 - symbol with ralt
+; layer 3 - symbol
 RAlt:: return
->!q::!
->!w::@
->!e::#
->!r::$
->!t::%
->!y:: return
->!u::^
->!i::&
->!o::*
->!p::-
->![::=
->!]::RShift
->!\::RWin
->!a::`
->!s::-
->!d::=
->!f::`{
->!g::}
->!h:: return
->!j::)
->!k::(
->!l::'
->!`;::"
->!':::
->!Enter::RControl
->!z::~
->!x::\
->!c::|
->!v::[
->!b::]
->!n:: return
->!m::+
->!,::_
->!.::<
->!/::>
->!RShift::?
+#HotIf (GetKeyState("RAlt", "P"))
+q::!
+w::@
+e::#
+r::$
+t::%
+y:: return
+u::^
+i::&
+o::*
+p::-
+[::=
+a::`
+s::-
+d::=
+f::`{
+g::}
+h:: return
+j::)
+k::(
+l::'
+`;::"
+':::
+Enter::RControl
+z::~
+x::\
+c::|
+v::[
+b::]
+n:: return
+m::+
+,::_
+.::<
+/::>
+RShift::?
+#HotIf
 
-; layer 3 - symbol with rshift
->+q::!
->+w::@
->+e::#
->+r::$
->+t::%
->+y:: return
->+u::^
->+i::&
->+o::*
->+p::-
->+[::=
->+]::RShift
->+\::RWin
->+a::`
->+s::-
->+d::=
->+f::`{
->+g::}
->+h:: return
->+j::)
->+k::(
->+l::'
->+`;::"
->+':::
->+Enter::RControl
->+z::~
->+x::\
->+c::|
->+v::[
->+b::]
->+n:: return
->+m::+
->+,::_
->+.::<
->+/::>
+; ; layer 3 - symbol with rshift
+; >+q::!
+; >+w::@
+; >+e::#
+; >+r::$
+; >+t::%
+; >+y:: return
+; >+u::^
+; >+i::&
+; >+o::*
+; >+p::-
+; >+[::=
+; >+a::`
+; >+s::-
+; >+d::=
+; >+f::`{
+; >+g::}
+; >+h:: return
+; >+j::)
+; >+k::(
+; >+l::'
+; >+`;::"
+; >+':::
+; >+Enter::RControl
+; >+z::~
+; >+x::\
+; >+c::|
+; >+v::[
+; >+b::]
+; >+n:: return
+; >+m::+
+; >+,::_
+; >+.::<
+; >+/::>
 
 ; layer 4 - func media
 LAlt:: return
-<!q::LAlt ; see fix above
-<!w::F9
-<!e::F8
-<!r::F7
-<!t::F12
-<!y:: return
-<!u:: return
-<!i::Volume_Mute
-<!o::Volume_Down
-<!p::Volume_Up
-<![::LAlt ; see fix above
-<!]::RShift
-<!\::RWin
-<!a::LControl
-<!s::F6
-<!d::F5
-<!f::F4
-<!g::F11
-<!h:: return
-<!j:: return
-<!k::Media_Play_Pause
-<!l::Media_Prev
-<!`;::Media_Next
-<!'::RControl
-<!Enter::RControl
-<!z::LShift
-<!x::F3
-<!c::F2
-<!v::F1
-<!b::F10
-<!n:: return
-<!m:: return
-<!,::PrintScreen
-<!.::ScrollLock
-<!/:: Pause
-<!RShift::RShift
+#HotIf (GetKeyState("LAlt", "P"))
+q::LAlt
+w::F9
+e::F8
+r::F7
+t::F12
+y:: return
+u:: return
+i::Volume_Mute
+o::Volume_Down
+p::Volume_Up
+[::LAlt
+a::LControl
+s::F6
+d::F5
+f::F4
+g::F11
+h:: return
+j:: return
+k::Media_Play_Pause
+l::Media_Prev
+`;::Media_Next
+'::RControl
+Enter::RControl
+z::LShift
+x::F3
+c::F2
+v::F1
+b::F10
+n:: return
+m:: return
+,::PrintScreen
+.::ScrollLock
+/:: Pause
+RShift::RShift
+#HotIf
 
 ; wide colemak_dh_jk. remove if not needed
 e::f
@@ -270,8 +272,11 @@ m::j
 ; $#b::#d ; for keeping ^v
 
 ; extra symbol remaps based on layers. remove if not needed
-y::BackSpace
-]::-
-\::=
+y:: return
+h:: return
 n::_
+Tab::LWin
+]::RShift
+\::RWin
+PrintScreen::RControl
 Delete::^w
