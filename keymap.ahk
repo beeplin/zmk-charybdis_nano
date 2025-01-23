@@ -39,33 +39,8 @@ m::n
 /::.
 RShift::/
 
-; wide colemak_dh_jk. remove if not needed
-e::f
-r::p
-t::b
-u::k
-i::l
-o::u
-p::y
-[::;
-s::r
-d::s
-f::t
-j::m
-k::n
-l::e
-`;::i
-'::o
-v::d
-b::v
-m::j
-,::h
-; $^v::^v ; keep ^v
-; $^b::^d ; for keeping ^v
-; $#v::#v ; keep ^v
-; $#b::#d ; for keeping ^v
-
 ; layer 2 - edit nav num
+
 Space::Space
 Space & q::LAlt
 Space & w::BackSpace
@@ -102,6 +77,7 @@ Space & /::3
 Space & RShift::RShift
 
 ; layer 3 - symbol
+
 RAlt:: return
 #HotIf (GetKeyState("RAlt", "P"))
 q::!
@@ -174,6 +150,7 @@ RShift::?
 ; >+/::>
 
 ; layer 4 - func media
+
 LAlt:: return
 #HotIf (GetKeyState("LAlt", "P"))
 Tab::AltTab
@@ -213,6 +190,7 @@ RShift::RShift
 #HotIf
 
 ; extra remaps based on layers. remove if not needed
+
 y:: return
 h:: return
 n:: return
@@ -221,6 +199,39 @@ Tab::LWin
 \::RWin
 PrintScreen::RControl
 Delete::^w
+
+colemak := false
+#Delete:: {
+    global colemak
+    colemak := !colemak
+}
+#HotIf (colemak)
+; wide colemak_dh_jk. remove if not needed
+e::f
+r::p
+t::b
+u::k
+i::l
+o::u
+p::y
+[::;
+s::r
+d::s
+f::t
+j::m
+k::n
+l::e
+`;::i
+'::o
+v::d
+b::v
+m::j
+,::h
+; $^v::^v ; keep ^v
+; $^b::^d ; for keeping ^v
+; $#v::#v ; keep ^v
+; $#b::#d ; for keeping ^v
+#HotIf
 
 ; tool functions
 
