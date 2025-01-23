@@ -2,77 +2,21 @@
 #SingleInstance Force
 ; #UseHook true
 
-get_modifiers() {
-    prefix := ""
-    if (GetKeyState("LControl", "P") || GetKeyState("RControl", "P"))
-        prefix := prefix "^"
-    if (GetKeyState("LShift", "P") || GetKeyState("RShift", "P"))
-        prefix := prefix "+"
-    if ((GetKeyState("LAlt", "P") || GetKeyState("RAlt", "P")) && (GetKeyState("q", "P") || GetKeyState("[", "P")))
-        prefix := prefix "!"
-    if (GetKeyState("LWin", "P") || GetKeyState("RWin", "P"))
-        prefix := prefix "#"
-    return prefix
-}
-
-prefixes := {}
-
-hold_tap_down(hold, tap) {
-    Send "{%hold% Down}"
-    global prefixes
-    prefixes.%tap% := get_modifiers()
-}
-
-hold_tap_up(hold, tap, physical) {
-    Send "{%hold% Up}"
-    global prefixes
-    if (A_PriorKey = physical) {
-        if (A_TimeSincePriorHotkey < 1000)
-            Suspend "1"
-        Send prefixes.%tap% "{%tap%}"
-        Suspend "0"
-        prefixes.%tap% := ""
-    }
-}
-
-; capslock -> ctrl & esc
 SetCapsLockState 'AlwaysOff'
-prefix_for_esc := ""
-*CapsLock:: {
-    Send "{LCtrl Down}"
-    global prefix_for_esc
-    prefix_for_esc := get_modifiers()
-}
-*CapsLock Up:: {
-    Send "{LCtrl Up}"
-    global prefix_for_esc
-    if (A_PriorKey = "CapsLock") {
-        if (A_TimeSincePriorHotkey < 1000)
-            Suspend "1"
-        Send prefix_for_esc "{Esc}"
-        Suspend "0"
-        prefix_for_esc := ""
-    }
-}
 
-; enter -> ctrl & enter
-prefix_for_enter := ""
-*Enter:: {
-    Send "{RCtrl Down}"
-    global prefix_for_enter
-    prefix_for_enter := get_modifiers()
-}
-*Enter Up:: {
-    Send "{RCtrl Up}"
-    global prefix_for_enter
-    if (A_PriorKey = "Enter") {
-        if (A_TimeSincePriorHotkey < 1000)
-            Suspend "1"
-        Send prefix_for_enter "{Enter}"
-        Suspend "0"
-        prefix_for_enter := ""
-    }
-}
+; win + capslock -> capslock
+#CapsLock::CapsLock
+
+; capslock -> ctrl when held, esc when tapped
+*CapsLock:: hold_tap_down("LCtrl", "Esc")
+*CapsLock Up:: hold_tap_up("LCtrl", "Esc", "CapsLock")
+
+; enter -> ctrl when held, enter when tapped
+*Enter:: hold_tap_down("RCtrl", "Enter")
+*Enter Up:: hold_tap_up("RCtrl", "Enter", "Enter")
+
+; layer 1 - default
+
 ; wide qwerty
 y::\
 u::y
@@ -94,6 +38,32 @@ m::n
 .::,
 /::.
 RShift::/
+
+; wide colemak_dh_jk. remove if not needed
+e::f
+r::p
+t::b
+u::k
+i::l
+o::u
+p::y
+[::;
+s::r
+d::s
+f::t
+j::m
+k::n
+l::e
+`;::i
+'::o
+v::d
+b::v
+m::j
+,::h
+; $^v::^v ; keep ^v
+; $^b::^d ; for keeping ^v
+; $#v::#v ; keep ^v
+; $#b::#d ; for keeping ^v
 
 ; layer 2 - edit nav num
 Space::Space
@@ -119,7 +89,6 @@ Space & k::4
 Space & l::5
 Space & `;::6
 Space & '::0
-Space & Enter::RControl
 Space & z::Insert
 Space & x::Home
 Space & c::End
@@ -157,7 +126,6 @@ k::(
 l::'
 `;::"
 ':::
-Enter::RControl
 z::~
 x::\
 c::|
@@ -194,7 +162,6 @@ RShift::?
 ; >+l::'
 ; >+`;::"
 ; >+':::
-; >+Enter::RControl
 ; >+z::~
 ; >+x::\
 ; >+c::|
@@ -231,7 +198,6 @@ k::Media_Play_Pause
 l::Media_Prev
 `;::Media_Next
 '::RControl
-Enter::RControl
 z::LShift
 x::F3
 c::F2
@@ -245,38 +211,47 @@ m:: return
 RShift::RShift
 #HotIf
 
-; wide colemak_dh_jk. remove if not needed
-e::f
-r::p
-t::b
-u::k
-i::l
-o::u
-p::y
-[::;
-s::r
-d::s
-f::t
-j::m
-k::n
-l::e
-`;::i
-'::o
-v::d
-b::v
-m::j
-,::h
-; $^v::^v ; keep ^v
-; $^b::^d ; for keeping ^v
-; $#v::#v ; keep ^v
-; $#b::#d ; for keeping ^v
-
-; extra symbol remaps based on layers. remove if not needed
+; extra remaps based on layers. remove if not needed
 y:: return
 h:: return
-n::_
+n:: return
 Tab::LWin
 ]::RShift
 \::RWin
 PrintScreen::RControl
 Delete::^w
+
+; tool functions
+
+prefixes := {}
+
+hold_tap_down(hold, tap) {
+    Send "{" hold " Down}"
+    global prefixes
+    prefixes.%tap% := get_modifiers()
+}
+
+hold_tap_up(hold, tap, physical) {
+    Send "{" hold " Up}"
+    global prefixes
+    if (A_PriorKey = physical) {
+        if (A_TimeSincePriorHotkey < 1000)
+            Suspend "1"
+        Send prefixes.%tap% "{" tap "}"
+        Suspend "0"
+        prefixes.%tap% := ""
+    }
+}
+
+get_modifiers() {
+    prefix := ""
+    if (GetKeyState("LControl", "P") || GetKeyState("RControl", "P"))
+        prefix := prefix "^"
+    if (GetKeyState("LShift", "P") || GetKeyState("RShift", "P"))
+        prefix := prefix "+"
+    if ((GetKeyState("LAlt", "P") || GetKeyState("RAlt", "P")) && (GetKeyState("q", "P") || GetKeyState("[", "P")))
+        prefix := prefix "!"
+    if (GetKeyState("LWin", "P") || GetKeyState("RWin", "P"))
+        prefix := prefix "#"
+    return prefix
+}
