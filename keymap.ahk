@@ -176,6 +176,7 @@ RShift::?
 ; layer 4 - func media
 LAlt:: return
 #HotIf (GetKeyState("LAlt", "P"))
+Tab::AltTab
 q::LAlt
 w::F9
 e::F8
