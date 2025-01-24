@@ -200,7 +200,7 @@ Tab::LWin
 PrintScreen::RControl
 Delete::^w
 
-colemak := false
+colemak := true
 #Delete:: {
     global colemak
     colemak := !colemak
