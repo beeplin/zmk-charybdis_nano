@@ -29,15 +29,15 @@
 &kp LSHFT           &trans              &trans              &trans              &trans                  &trans              &mkp LCLK           &mkp MCLK           &mkp RCLK           &kp RSHFT
                                         &trans              &trans              &trans                  &trans              &trans >; };
         layer2_edit_nav_num_scroll { bindings = <
-&mt LALT CAPS       &kp BSPC            &kp UP              &kp DEL             &kp PG_UP               &kp FSLH            &kp N7              &kp N8              &kp N9              &mt LALT PLUS
+&kp LALT            &kp BSPC            &kp UP              &kp DEL             &kp PG_UP               &kp PLUS            &kp N7              &kp N8              &kp N9              &kp LALT 
 &mt LCTRL ESC       &kp LEFT            &kp ENTER           &kp RIGHT           &kp TAB                 &kp ASTRK           &kp N4              &kp N5              &kp N6              &kp N0
-&mt LSHFT INS       &kp HOME            &kp DOWN            &kp END             &kp PG_DN               &kp MINUS           &kp N1              &kp N2              &kp N3              &mt RSHFT DOT
-                                        &none               &none               &none                   &kp RGUI            &kp RSHFT >; };
+&mt LSHFT INS       &kp HOME            &kp DOWN            &kp END             &kp PG_DN               &kp MINUS           &kp N1              &kp N2              &kp N3              &kp RSHFT
+                                        &none               &none               &none                   &kp RGUI            &mc RSHFT CAPS >; };
         layer3_symbol_snipe { bindings = <
 &kp EXCL            &kp AT              &kp POUND           &kp DLLR            &kp PRCNT               &kp CARET           &kp AMPS            &kp ASTRK           &kp MINUS           &kp EQUAL
 &kp GRAVE           &kp MINUS           &kp EQUAL           &kp LBRC            &kp RBRC                &kp RPAR            &kp LPAR            &kp SQT             &kp  DQT            &kp COLON
 &kp TILDE           &kp BSLH            &kp PIPE            &kp LBKT            &kp RBKT                &kp PLUS            &kp UNDER           &kp LT              &kp GT              &kp QMARK
-                                        &kp LALT            &caps_word          &kp LCTRL               &none               &none >; };
+                                        &kp LALT            &kp CAPS            &kp LCTRL               &none               &none >; };
         layer4_func_media { bindings = <
 &kp LALT            &kp F9              &kp F8              &kp F7              &kp F12                 &kp C_BRI_UP        &kp C_MUTE          &kp C_VOL_DN        &kp C_VOL_UP        &kp LALT
 &kp LCTRL           &kp F6              &kp F5              &kp F4              &kp F11                 &kp C_BRI_DN        &mt RCTRL C_PP      &mt RSHFT C_PREV    &mt LALT C_NEXT     &kp RCTRL
