@@ -48,29 +48,29 @@ Space & e::Up
 Space & r::Delete
 Space & t::PgUp
 Space & y:: return
-Space & u::AppsKey
+Space & u::+
 Space & i::7
 Space & o::8
 Space & p::9
 Space & [::LAlt
 Space & a::Escape
 Space & s::Left
-Space & d::Down
+Space & d::Enter
 Space & f::Right
 Space & g::Tab
 Space & h:: return
-Space & j::CapsLock
+Space & j::*
 Space & k::4
 Space & l::5
 Space & `;::6
 Space & '::0
 Space & z::Insert
 Space & x::Home
-Space & c::End
-Space & v::Enter
+Space & c::Down
+Space & v::End
 Space & b::PgDn
 Space & n:: return
-Space & m::CapsLock
+Space & m::-
 Space & ,::1
 Space & .::2
 Space & /::3
@@ -89,8 +89,8 @@ y:: return
 u::^
 i::&
 o::*
-p::-
-[::=
+p::|
+[::\
 a::`
 s::-
 d::=
@@ -99,12 +99,12 @@ g::}
 h:: return
 j::)
 k::(
-l::'
-`;::"
+l::"
+`;::'
 ':::
 z::~
-x::\
-c::|
+x::_
+c::+
 v::[
 b::]
 n:: return
@@ -113,6 +113,7 @@ m::+
 .::<
 /::>
 RShift::?
+Space::CapsLock
 #HotIf
 
 ; ; layer 3 - symbol with rshift
@@ -182,7 +183,7 @@ c::F2
 v::F1
 b::F10
 n:: return
-m::Launch_App2
+m::AppsKey
 ,::PrintScreen
 .::ScrollLock
 /:: Pause
