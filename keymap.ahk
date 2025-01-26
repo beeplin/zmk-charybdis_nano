@@ -80,6 +80,7 @@ Space & RShift::RShift
 
 RAlt:: return
 #HotIf (GetKeyState("RAlt", "P"))
+Space::CapsLock
 q::!
 w::@
 e::#
@@ -103,8 +104,8 @@ l::"
 `;::'
 ':::
 z::~
-x::_
-c::+
+x::\
+c::|
 v::[
 b::]
 n:: return
@@ -113,10 +114,10 @@ m::+
 .::<
 /::>
 RShift::?
-Space::CapsLock
 #HotIf
 
 ; ; layer 3 - symbol with rshift
+; Space::CapsLock
 ; >+q::!
 ; >+w::@
 ; >+e::#
@@ -124,20 +125,20 @@ Space::CapsLock
 ; >+t::%
 ; >+y:: return
 ; >+u::^
-; >+i::&
+; >+i::&a
 ; >+o::*
-; >+p::-
-; >+[::=
+; >+p::|
+; >+[::\
 ; >+a::`
 ; >+s::-
 ; >+d::=
-; >+f::`{
+; >+f::`{{
 ; >+g::}
 ; >+h:: return
 ; >+j::)
 ; >+k::(
-; >+l::'
-; >+`;::"
+; >+l::"
+; >+`;::'"
 ; >+':::
 ; >+z::~
 ; >+x::\
@@ -154,7 +155,6 @@ Space::CapsLock
 
 LAlt:: return
 #HotIf (GetKeyState("LAlt", "P"))
-Tab::AltTab
 q::LAlt
 w::F9
 e::F8
