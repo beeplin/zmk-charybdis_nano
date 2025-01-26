@@ -14,6 +14,7 @@
         ls: layer_sticky { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&sk>; };
         ms: mod_sticky   { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; };
         mm: mod_mouse    { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&mkp>; };
+        mc: mod_capsword { compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>; flavor = "hold-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&caps_word>; };
     };
     keymap {
         compatible = "zmk,keymap";
@@ -21,27 +22,27 @@
 &kp Q               &kp W               &kp F               &kp P               &kp B                   &kp K               &kp L               &kp U               &kp Y               &kp SEMI
 &kp A               &kp R               &kp S               &kp T               &kp G                   &kp M               &kp N               &kp E               &kp I               &kp O
 &kp Z               &kp X               &kp C               &kp D               &kp V                   &kp J               &kp H               &kp COMMA           &kp DOT             &kp FSLH
-                                        &ls 4 LGUI          &lt 2 SPACE         &kp LCTRL               &kp LSHFT           &lt 3 SPACE >; };
+                                        &ls 4 LALT          &lt 2 SPACE         &kp LCTRL               &kp RGUI            &lt 3 RSHFT >; };
         layer1_auto_mouse_pointer { bindings = <
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
 &kp LSHFT           &trans              &trans              &trans              &trans                  &trans              &mkp LCLK           &mkp MCLK           &mkp RCLK           &kp RSHFT
                                         &trans              &trans              &trans                  &trans              &trans >; };
         layer2_edit_nav_num_scroll { bindings = <
-&ms LALT LALT       &kp BSPC            &kp UP              &kp DEL             &kp PG_UP               &kp K_APP           &kp N7              &kp N8              &kp N9              &kp LALT
-&mt LCTRL ESC       &kp LEFT            &kp DOWN            &kp RIGHT           &kp TAB                 &kp CAPS            &kp N4              &kp N5              &kp N6              &kp N0
-&mt LSHFT INS       &kp HOME            &kp END             &kp ENTER           &kp PG_DN               &caps_word          &kp N1              &kp N2              &kp N3              &kp RSHFT
-                                        &none               &none               &none                   &kp LSHFT           &kp LGUI >; };
+&mt LALT CAPS       &kp BSPC            &kp UP              &kp DEL             &kp PG_UP               &kp KP_DIVIDE       &kp N7              &kp N8              &kp N9              &mt LALT KP_PLUS
+&mt LCTRL ESC       &kp LEFT            &kp ENTER           &kp RIGHT           &kp TAB                 &kp KP_MULTIPLY     &kp N4              &kp N5              &kp N6              &kp N0
+&mt LSHFT INS       &kp HOME            &kp DOWN            &kp END             &kp PG_DN               &kp KP_MINUS        &kp N1              &kp N2              &kp N3              &kp KP_DOT
+                                        &none               &none               &none                   &kp RGUI            &mc RSHFT CAPS >; };
         layer3_symbol_snipe { bindings = <
 &kp EXCL            &kp AT              &kp POUND           &kp DLLR            &kp PRCNT               &kp CARET           &kp AMPS            &kp ASTRK           &kp MINUS           &kp EQUAL
 &kp GRAVE           &kp MINUS           &kp EQUAL           &kp LBRC            &kp RBRC                &kp RPAR            &kp LPAR            &kp SQT             &kp  DQT            &kp COLON
 &kp TILDE           &kp BSLH            &kp PIPE            &kp LBKT            &kp RBKT                &kp PLUS            &kp UNDER           &kp LT              &kp GT              &kp QMARK
-                                        &kp LGUI            &kp LALT            &kp LCTRL               &none               &none >; };
+                                        &kp LALT            &kp LGUI            &kp LCTRL               &none               &none >; };
         layer4_func_media { bindings = <
 &kp LALT            &kp F9              &kp F8              &kp F7              &kp F12                 &kp C_BRI_UP        &kp C_MUTE          &kp C_VOL_DN        &kp C_VOL_UP        &kp LALT
 &kp LCTRL           &kp F6              &kp F5              &kp F4              &kp F11                 &kp C_BRI_DN        &mt RCTRL C_PP      &mt RSHFT C_PREV    &mt LALT C_NEXT     &kp RCTRL
-&kp LSHFT           &kp F3              &kp F2              &kp F1              &kp F10                 &kp C_AL_CALC       &kp PSCRN           &kp SLCK            &kp PAUSE_BREAK     &kp RSHFT
-                                        &none               &none               &mo 5                   &kp LSHFT           &kp LGUI >; };
+&kp LSHFT           &kp F3              &kp F2              &kp F1              &kp F10                 &kp K_APP           &kp PSCRN           &kp SLCK            &kp PAUSE_BREAK     &kp RSHFT
+                                        &none               &none               &mo 5                   &kp RGUI            &kp RSHFT >; };
         layer5_config { bindings = <
 &bt BT_SEL 0        &bt BT_SEL 1        &bt BT_SEL 2        &bt BT_SEL 3        &bt BT_SEL 4            &rgb_ug RGB_SPI     &rgb_ug RGB_HUI     &rgb_ug RGB_SAI     &rgb_ug RGB_BRI     &rgb_ug RGB_EFR
 &bt BT_DISC 0       &bt BT_DISC 1       &bt BT_DISC 2       &bt BT_DISC 3       &bt BT_DISC 4           &rgb_ug RGB_SPD     &rgb_ug RGB_HUD     &rgb_ug RGB_SAD     &rgb_ug RGB_BRD     &rgb_ug RGB_EFF
