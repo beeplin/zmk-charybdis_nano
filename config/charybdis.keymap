@@ -29,9 +29,9 @@
 &kp LSHFT           &trans              &trans              &trans              &trans                  &trans              &mkp LCLK           &mkp MCLK           &mkp RCLK           &kp RSHFT
                                         &trans              &trans              &trans                  &trans              &trans >; };
         layer2_edit_nav_num_scroll { bindings = <
-&mt LALT CAPS       &kp BSPC            &kp UP              &kp DEL             &kp PG_UP               &kp KP_DIVIDE       &kp N7              &kp N8              &kp N9              &mt LALT KP_PLUS
-&mt LCTRL ESC       &kp LEFT            &kp ENTER           &kp RIGHT           &kp TAB                 &kp KP_MULTIPLY     &kp N4              &kp N5              &kp N6              &kp N0
-&mt LSHFT INS       &kp HOME            &kp DOWN            &kp END             &kp PG_DN               &kp KP_MINUS        &kp N1              &kp N2              &kp N3              &kp DOT
+&mt LALT CAPS       &kp BSPC            &kp UP              &kp DEL             &kp PG_UP               &kp FSLH            &kp N7              &kp N8              &kp N9              &mt LALT PLUS
+&mt LCTRL ESC       &kp LEFT            &kp ENTER           &kp RIGHT           &kp TAB                 &kp ASTRK           &kp N4              &kp N5              &kp N6              &kp N0
+&mt LSHFT INS       &kp HOME            &kp DOWN            &kp END             &kp PG_DN               &kp MINUS           &kp N1              &kp N2              &kp N3              &kp DOT
                                         &none               &none               &none                   &kp RGUI            &kp RSHFT >; };
         layer3_symbol_snipe { bindings = <
 &kp EXCL            &kp AT              &kp POUND           &kp DLLR            &kp PRCNT               &kp CARET           &kp AMPS            &kp ASTRK           &kp MINUS           &kp EQUAL
