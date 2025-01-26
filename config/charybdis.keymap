@@ -22,7 +22,7 @@
 &kp Q               &kp W               &kp F               &kp P               &kp B                   &kp K               &kp L               &kp U               &kp Y               &kp SEMI
 &kp A               &kp R               &kp S               &kp T               &kp G                   &kp M               &kp N               &kp E               &kp I               &kp O
 &kp Z               &kp X               &kp C               &kp D               &kp V                   &kp J               &kp H               &kp COMMA           &kp DOT             &kp FSLH
-                                        &ls 4 LALT          &lt 2 SPACE         &kp LCTRL               &kp RGUI            &lt 3 RSHFT >; };
+                                        &ls 4 LALT          &lt 2 SPACE         &kp LCTRL               &kp RGUI            &ls 3 RSHFT >; };
         layer1_auto_mouse_pointer { bindings = <
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
 &trans              &trans              &trans              &trans              &trans                  &trans              &trans              &trans              &trans              &trans
