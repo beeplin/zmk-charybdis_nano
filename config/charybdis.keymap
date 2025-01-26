@@ -34,9 +34,9 @@
 &mt LSHFT INS       &kp HOME            &kp DOWN            &kp END             &kp PG_DN               &kp MINUS           &kp N1              &kp N2              &kp N3              &kp RSHFT
                                         &none               &none               &none                   &kp RGUI            &mc RSHFT CAPS >; };
         layer3_symbol_snipe { bindings = <
-&kp EXCL            &kp AT              &kp POUND           &kp DLLR            &kp PRCNT               &kp CARET           &kp AMPS            &kp ASTRK           &kp MINUS           &kp EQUAL
-&kp GRAVE           &kp MINUS           &kp EQUAL           &kp LBRC            &kp RBRC                &kp RPAR            &kp LPAR            &kp SQT             &kp  DQT            &kp COLON
-&kp TILDE           &kp BSLH            &kp PIPE            &kp LBKT            &kp RBKT                &kp PLUS            &kp UNDER           &kp LT              &kp GT              &kp QMARK
+&kp EXCL            &kp AT              &kp POUND           &kp DLLR            &kp PRCNT               &kp CARET           &kp AMPS            &kp ASTRK           &kp PIPE            &kp BSLH
+&kp GRAVE           &kp MINUS           &kp EQUAL           &kp LBRC            &kp RBRC                &kp RPAR            &kp LPAR            &kp DQT             &kp SQT             &kp COLON
+&kp TILDE           &kp UNDER           &kp PLUS            &kp LBKT            &kp RBKT                &kp PLUS            &kp UNDER           &kp LT              &kp GT              &kp QMARK
                                         &kp LALT            &kp CAPS            &kp LCTRL               &none               &none >; };
         layer4_func_media { bindings = <
 &kp LALT            &kp F9              &kp F8              &kp F7              &kp F12                 &kp C_BRI_UP        &kp C_MUTE          &kp C_VOL_DN        &kp C_VOL_UP        &kp LALT
