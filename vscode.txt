@@ -1,0 +1,10 @@
+s a left/right
+c s a left/right/up/down/pageup/pagedown
+a pageup/pagedown
+c pageup/pagedown
+c s pageup/pagedown
+c a backspace
+c enter
+c s enter
+c space
+c s space
