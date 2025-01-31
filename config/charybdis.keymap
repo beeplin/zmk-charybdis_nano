@@ -35,7 +35,7 @@
                                         &trans              &trans              &trans                  &trans              &trans >; };
         layer2_edit_nav_num_scroll { bindings = <
 &kp LALT            &kp BSPC            &kp UP              &kp DEL             &kp PG_UP               &kp PLUS            &kp N7              &kp N8              &kp N9              &kp LALT 
-&mt LCTRL ESC       &kp LEFT            &kp ENTER           &kp RIGHT           &kp TAB                 &kp ASTRK           &kp N4              &kp N5              &kp N6              &kp N0
+&mt LCTRL ESC       &kp LEFT            &kp ENTER           &kp RIGHT           &kp TAB                 &kp KP_N0           &kp N4              &kp N5              &kp N6              &kp N0
 &mt LSHFT INS       &kp HOME            &kp DOWN            &kp END             &kp PG_DN               &kp MINUS           &kp N1              &kp N2              &kp N3              &kp RSHFT
                                         &none               &none               &none                   &mc RSHFT CAPS      &kp RGUI >; };
         layer3_symbol_snipe { bindings = <
