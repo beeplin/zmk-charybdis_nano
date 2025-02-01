@@ -18,8 +18,9 @@
     };
     combos {
         compatible = "zmk,combos";
-        ctrl_alt { bindings = <&kp LC(LEFT_ALT)>; key-positions = <32 34>; };
-        shft_alt { bindings = <&kp LS(LEFT_ALT)>; key-positions = <31 33>; };
+        alt      { bindings = <&kp LALT>;     key-positions = <31 34>; };
+        shft_alt { bindings = <&kp LS(LALT)>; key-positions = <31 33>; };
+        ctrl_alt { bindings = <&kp LC(LALT)>; key-positions = <32 34>; };
     };
     keymap {
         compatible = "zmk,keymap";
