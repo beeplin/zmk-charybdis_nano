@@ -2,269 +2,124 @@
 #SingleInstance Force
 ; #UseHook true
 
-SetCapsLockState 'AlwaysOff'
+`::`
+1::^
+2::=
+3::_
+4::-
+5::+
+6::#
+7::*
+8::`{
++8::}
+9::(
++9::)
+0::$
+-::%
+=::)
+BackSpace::BackSpace
+Tab::LAlt
+q::q
+w::w
+e::u
+r::p
+t::b
+y::f
+u::h
+i::k
+o::l
+p::;
+[::[
++[::]
+]::]
+\::}
+CapsLock::LCtrl
+a::a
+s::s
+d::d
+f::t
+g::g
+h::m
+j::n
+k::e
+l::i
+`;::o
+'::'
+Enter::"
+LShift::LShift
+z::z
+x::x
+c::c
+v::v
+b::y
+n::j
+m::r
+,::,
+.::.
+/::/
+RShift::\
 
-; win + capslock -> capslock
-#CapsLock::CapsLock
-
-; capslock -> ctrl when held, esc when tapped
-*CapsLock:: hold_tap_down("LCtrl", "Esc")
-*CapsLock Up:: hold_tap_up("LCtrl", "Esc", "CapsLock")
-
-; enter -> ctrl when held, enter when tapped
-*Enter:: hold_tap_down("RCtrl", "Enter")
-*Enter Up:: hold_tap_up("RCtrl", "Enter", "Enter")
-
-; layer 1 - default
-
-; wide qwerty
-y::\
-u::y
-i::u
-o::i
-p::o
-[::p
-]::[
-\::]
-h::'
-j::h
-k::j
-l::k
-`;::l
-'::`;
-n::RShift
-m::n
-,::m
-.::,
-/::.
-RShift::/
-
-; layer 2 - edit nav num
-
-Space::Space
-Space & q::LAlt
+Space & `::F12
+Space & 1::F1
+Space & 2::F2
+Space & 3::F3
+Space & 4::F4
+Space & 5::F5
+Space & 6::F6
+Space & 7::F7
+Space & 8::F8
+Space & 9::F9
+Space & 0::F10
+Space & -::F11
+Space & Tab::LAlt
+Space & q::Tab
 Space & w::BackSpace
 Space & e::Up
 Space & r::Delete
 Space & t::PgUp
-Space & y:: return
-Space & u::+
-Space & i::7
-Space & o::8
-Space & p::9
+Space & y::&
+Space & u::7
+Space & i::8
+Space & o::9
+Space & p::@
 Space & [::LAlt
+Space & CapsLock::LCtrl
 Space & a::Escape
 Space & s::Left
-Space & d::Enter
+Space & d::Down
 Space & f::Right
-Space & g::Tab
-Space & h:: return
-Space & j::*
-Space & k::4
-Space & l::5
-Space & `;::6
-Space & '::0
-Space & z::Insert
+Space & g::PgDn
+Space & h::!
+Space & j::1
+Space & k::2
+Space & l::3
+Space & `;::0
+Space & '::RCtrl
+space & LShift::LShift
+Space & z::CapsLock
 Space & x::Home
-Space & c::Down
-Space & v::End
-Space & b::PgDn
-Space & n:: return
-Space & m::-
-Space & ,::1
-Space & .::2
-Space & /::3
+Space & c::Insert
+Space & v::Enter
+Space & b::End
+Space & n::|
+Space & m::4
+Space & ,::5
+Space & .::6
+Space & /::~
 Space & RShift::RShift
-
-; layer 3 - symbol
-
-RAlt:: return
-#HotIf (GetKeyState("RAlt", "P"))
-Space::CapsLock
-q::!
-w::@
-e::#
-r::$
-t::%
-y:: return
-u::^
-i::&
-o::*
-p::(
-[::)
-a::`
-s::-
-d::=
-f::[
-g::]
-h:: return
-j::\
-k::'
-l::(
-`;::)
-':::
-z::~
-x::_
-c::+
-v::`{
-b::}
-n:: return
-m::|
-,::"
-.::<
-/::>
-RShift::?
-#HotIf
-
-; ; layer 3 - symbol with rshift
-; Space::CapsLock
-; >+q::!
-; >+w::@
-; >+e::#
-; >+r::$
-; >+t::%
-; >+y:: return
-; >+u::^
-; >+i::&
-; >+o::*
-; >+p::(
-; >+[::)
-; >+a::`
-; >+s::-
-; >+d::=
-; >+f::[
-; >+g::]
-; >+h:: return
-; >+j::\
-; >+k::'
-; >+l::(
-; >+`;::)
-; >+':::
-; >+z::~
-; >+x::_
-; >+c::+
-; >+v::`{
-; >+b::}
-; >+n:: return
-; >+m::|
-; >+,::"
-; >+.::<
-; >+/::>
-
-; layer 4 - func media
+Space & RAlt::RShift
 
 LAlt:: return
 #HotIf (GetKeyState("LAlt", "P"))
-q::LAlt
-w::F9
-e::F8
-r::F7
-t::F12
-y:: return
-u:: return
-i::Volume_Mute
-o::Volume_Down
-p::Volume_Up
-[::LAlt
-a::LControl
-s::F6
-d::F5
-f::F4
-g::F11
-h:: return
-j:: return
-k::Media_Play_Pause
-l::Media_Prev
-`;::Media_Next
-'::RControl
-z::LShift
-x::F3
-c::F2
-v::F1
+w::Volume_Down
+e::Volume_Mute
+r::Volume_Up
+s::Media_Prev
+d::Media_Play_Pause
+f::Media_Next
+z::AppsKey
+x::PrintScreen
+c::ScrollLock
+v:: Pause
 b::F10
-n:: return
-m::AppsKey
-,::PrintScreen
-.::ScrollLock
-/:: Pause
-RShift::RShift
 #HotIf
-
-; extra remaps based on layers. remove if not needed
-
-y:: return
-h:: return
-n:: return
-Tab::LWin
-]::RShift
-\::RWin
-PrintScreen::RControl
-Delete::^w
-
-colemak := true
-#Delete:: {
-    global colemak
-    colemak := !colemak
-}
-#HotIf (colemak)
-; wide colemak_dh_jk. remove if not needed
-e::f
-r::p
-t::b
-u::k
-i::l
-o::u
-p::y
-[::;
-s::r
-d::s
-f::t
-j::m
-k::n
-l::e
-`;::i
-'::o
-v::d
-b::v
-m::j
-,::h
-; $^v::^v ; keep ^v
-; $^b::^d ; for keeping ^v
-; $#v::#v ; keep ^v
-; $#b::#d ; for keeping ^v
-#HotIf
-
-; tool functions
-
-prefixes := {}
-
-hold_tap_down(hold, tap) {
-    Send "{" hold " Down}"
-    global prefixes
-    prefixes.%tap% := get_modifiers()
-}
-
-hold_tap_up(hold, tap, physical) {
-    Send "{" hold " Up}"
-    global prefixes
-    if (A_PriorKey = physical) {
-        if (A_TimeSincePriorHotkey < 1000)
-            Suspend "1"
-        Send prefixes.%tap% "{" tap "}"
-        Suspend "0"
-        prefixes.%tap% := ""
-    }
-}
-
-get_modifiers() {
-    prefix := ""
-    if (GetKeyState("LControl", "P") || GetKeyState("RControl", "P"))
-        prefix := prefix "^"
-    if (GetKeyState("LShift", "P") || GetKeyState("RShift", "P"))
-        prefix := prefix "+"
-    if ((GetKeyState("LAlt", "P") || GetKeyState("RAlt", "P")) && (GetKeyState("q", "P") || GetKeyState("[", "P")))
-        prefix := prefix "!"
-    if (GetKeyState("LWin", "P") || GetKeyState("RWin", "P"))
-        prefix := prefix "#"
-    return prefix
-}
