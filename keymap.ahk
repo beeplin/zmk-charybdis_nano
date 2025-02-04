@@ -59,6 +59,7 @@ m::r
 /::/
 RShift::\
 
+Space::Space
 Space & `::F12
 Space & 1::F1
 Space & 2::F2
