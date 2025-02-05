@@ -19,11 +19,11 @@ setLayer("", "
 (
 ^     +     -     =     _     ``    %     #     *     {     }     [     ]        $
 
-Tab      b     w     u     c     y     q     /     k     o     ;     (     )     \
+Tab      p     v     u     y     c     q     /     k     o     ;     (     )     \
 
 LCtrl     i     a     s     g     z     f     h     e     l     t     '      Enter
 
-LShift       x     d     r     v     p     n     m     j     ,     .        RShift
+LShift       x     d     r     b     w      n     m     j     ,     .        RShift
 
 LCtrl LWin LAlt                    Space                           LAlt Rwin RCtrl
 )"
