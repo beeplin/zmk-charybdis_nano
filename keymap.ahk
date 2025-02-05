@@ -1,7 +1,7 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
-setKeyboard("
+setKeyboard "
 (
 ``    1     2     3     4     5     6     7     8     9     0     -     =       BS
 
@@ -13,9 +13,8 @@ LShift       z     x     c     v     b     n     m     ,     .     /        RShi
 
 LCtrl LWin LAlt                    Space                        RAlt AppsKey RCtrl
 )"
-)
 
-setLayer("", "
+setLayer "", "
 (
 ^     +     -     =     _     ``    %     #     *     {     }     [     ]        $
 
@@ -27,9 +26,8 @@ LShift       x     d     b     r     w      n     m     j     ,     .       RShi
 
 LCtrl LWin LAlt                    Space                           LAlt Rwin RCtrl
 )"
-)
 
-setLayer("Space", "
+setLayer "Space", "
 (
 F11   F12   F2    F3    F4    F5    F6    F7    F8    F9    F10   Volume_Down    Volume_Up   Volume_Mute   
 
@@ -41,7 +39,6 @@ LShift    CapsLock Down  PgDn  Del   End   |     4     5     6     ~            
 
 LCtrl LWin LAlt                    Space                                                 LAlt Rwin RCtrl
 )"
-)
 
 key2index := Map()
 
