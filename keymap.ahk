@@ -1,49 +1,45 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
-; SetCapsLockState 'AlwaysOff'
-; Space & F1:: Send "{Blind}{CapsLock Down}"
-; Space & F1 Up:: Send "{Blind}{CapsLock Up}"
-
 layer_qwerty := create_layer("
 (
-``     1     2     3     4     5     6     7     8     9     0     -     =       BS
+``    1     2     3     4     5     6     7     8     9     0     -     =       BS
 
-Tab       q     w     e     r     t     y     u     i     o     p     [     ]     \
+Tab      q     w     e     r     t     y     u     i     o     p     [     ]     \
 
-Caps       a     s     d     f     g     h     j     k     l     ;     '      Enter
+Caps      a     s     d     f     g     h     j     k     l     ;     '      Enter
 
-LShift        z     x     c     v     b     n     m     ,     .     /        RShift
+LShift       z     x     c     v     b     n     m     ,     .     /        RShift
 
-LCtrl LWin LAlt                     Space                        RAlt AppsKey RCtrl
+LCtrl LWin LAlt                    Space                        RAlt AppsKey RCtrl
 )"
 )
 
 layer_default := create_layer("
 (
-^     +     -     =     _     ``    %     #     *     {     }     [     ]         $
+^     +     -     =     _     ``    %     #     *     {     }     [     ]        $
 
-Tab      b     w     u     y     p     q     f     k     m     ;     (     )      \
+Tab      b     w     u     c     y     ,     .     k     o     ;     (     )     \
 
-LCtrl     a     r     s     t     d     j     n     e     i     o     '       Enter
+LCtrl     a     i     s     g     z     f     h     e     l     t     '      Enter
 
-LShift       x     c     v     g     z     h     l     ,     .     /         RShift
+LShift       x     d     r     v     p     n     m     j     q     /        RShift
 
-LCtrl LWin LAlt                     Space                            LAlt Rwin RCtrl
+LCtrl LWin LAlt                    Space                           LAlt Rwin RCtrl
 )"
 )
 
 layer_space := create_layer("
 (
-F12   F1    F2    F3    F4    F5    F6    F7    F8    F9    F10    F11 PrintScreen  Volume_Up
+F12   F1    F2    F3    F4    F5    F6    F7    F8    F9    F10   F11   PrintScreen  Volume_Up
 
-LAlt     Tab   BS    Up    Del   PgUp  &     7     8     9     @     LAlt AppsKey Volume_Mute
+LAlt     Tab   BS    Up    End   PgUp  &     7     8     9     @     LAlt  AppsKey Volume_Mute
 
-LCtrl      Esc   Left  Down  Right PgDn  !     1     2     3     0     RCtrl      Volume_Down
+LCtrl     Esc   Left  Enter Right PgDn  !     1     2     3     0     RCtrl        Volume_Down
 
-LShift        Home  Ins   Enter End   Caps  |     4     5     6     ~                  RShift
+LShift       Home  Down  Del   Ins   Caps  |     4     5     6     ~                    RShift
 
-LCtrl LWin LAlt                     Space                                     LAlt Rwin RCtrl
+LCtrl LWin LAlt                    Space                                       LAlt Rwin RCtrl
 )"
 )
 
