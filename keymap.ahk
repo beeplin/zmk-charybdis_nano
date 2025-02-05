@@ -7,7 +7,7 @@ layer_qwerty := create_layer("
 
 Tab      q     w     e     r     t     y     u     i     o     p     [     ]     \
 
-Caps      a     s     d     f     g     h     j     k     l     ;     '      Enter
+CapsLock  a     s     d     f     g     h     j     k     l     ;     '      Enter
 
 LShift       z     x     c     v     b     n     m     ,     .     /        RShift
 
@@ -21,7 +21,7 @@ layer_default := create_layer("
 
 Tab      b     w     u     c     y     ,     .     k     o     ;     (     )     \
 
-LCtrl     a     i     s     g     z     f     h     e     l     t     '      Enter
+LCtrl     i     a     s     g     z     f     h     e     l     t     '      Enter
 
 LShift       x     d     r     v     p     n     m     j     q     /        RShift
 
@@ -33,11 +33,11 @@ layer_space := create_layer("
 (
 F12   F1    F2    F3    F4    F5    F6    F7    F8    F9    F10   F11   PrintScreen  Volume_Up
 
-LAlt     Tab   BS    Up    End   PgUp  &     7     8     9     @     LAlt  AppsKey Volume_Mute
+LAlt     Tab   BS    Up    PgUp  Home  &     7     8     9     @     LAlt  AppsKey Volume_Mute
 
-LCtrl     Esc   Left  Enter Right PgDn  !     1     2     3     0     RCtrl        Volume_Down
+LCtrl     Esc   Left  Enter Right Ins   !     1     2     3     0     RCtrl        Volume_Down
 
-LShift       Home  Down  Del   Ins   Caps  |     4     5     6     ~                    RShift
+LShift    CapsLock Down  PgDn  Del   End   |     4     5     6     ~                    RShift
 
 LCtrl LWin LAlt                    Space                                       LAlt Rwin RCtrl
 )"
@@ -57,7 +57,6 @@ for key, value in layer_map
 
 create_layer(str) {
     str := StrReplace(str, "`n", " ")
-    str := StrReplace(str, "Caps", "CapsLock")
     loop {
         str := StrReplace(str, "  ", " ", , &Count)
         if Count = 0
