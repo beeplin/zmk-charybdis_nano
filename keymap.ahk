@@ -21,7 +21,7 @@ setLayer("", "
 
 Tab      p     v     u     y     c     q     /     k     o     ;     (     )     \
 
-LCtrl     i     a     s     g     z     f     h     e     l     t     '      Enter
+LCtrl     i     a     g     s     z     f     h     e     l     t     '      Enter
 
 LShift       x     d     b     r     w      n     m     j     ,     .        RShift
 
