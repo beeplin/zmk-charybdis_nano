@@ -66,8 +66,8 @@ create_layer(str) {
 }
 
 enable_layer(leader) {
-    if leader != DEFAULT
-        Hotkey leader, (hk) => Send("{" hk "}")
+  ；  if leader != DEFAULT
+  ；      Hotkey leader, (hk) => Send("{" hk "}")
     for index, key in layer_qwerty {
         hot_key := leader = DEFAULT ? "*" key : leader " & " key
         Hotkey hot_key, send_layered_key
