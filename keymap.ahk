@@ -1,7 +1,7 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
-layer_qwerty := create_layer("
+set_keyboard("
 (
 ``    1     2     3     4     5     6     7     8     9     0     -     =       BS
 
@@ -15,7 +15,7 @@ LCtrl LWin LAlt                    Space                        RAlt AppsKey RCt
 )"
 )
 
-setup_layer("", "
+set_layer("", "
 (
 ^     +     -     =     _     ``    %     #     *     {     }     [     ]        $
 
@@ -29,7 +29,7 @@ LCtrl LWin LAlt                    Space                           LAlt Rwin RCt
 )"
 )
 
-setup_layer("Space", "
+set_layer("Space", "
 (
 F12   F1    F2    F3    F4    F5    F6    F7    F8    F9    F10   F11   PrintScreen  Volume_Up
 
@@ -43,13 +43,15 @@ LCtrl LWin LAlt                    Space                                       L
 )"
 )
 
-index_map := Map()
-for index, key in layer_qwerty
-    index_map[key] := index
+key2index := Map()
 
-layer_map := Map()
+set_keyboard(str) {
+for index, key in convert_to_layer(str)
+    key2index[key] := index
+}
 
-create_layer(str) {
+
+convert_to_layer(str) {
     str := StrReplace(str, "`n", " ")
     loop {
         str := StrReplace(str, "  ", " ", , &Count)
@@ -59,9 +61,11 @@ create_layer(str) {
     return StrSplit(str, " ")
 }
 
-setup_layer(leader, str) {
-    layer_map[leader] := create_layer(str)
-    for index, key in layer_qwerty {
+leader2layer := Map()
+
+set_layer(leader, str) {
+    leader2layer[leader] := convert_to_layer(str)
+    for key in key2index {
         hot_key := leader = "" ? "*" key : leader " & " key
         Hotkey hot_key, send_layered_key
         Hotkey hot_key " Up", send_layered_key
@@ -71,11 +75,11 @@ setup_layer(leader, str) {
 send_layered_key(hot_key) {
     array := StrSplit(hot_key, " & ")
     leader := array.Length = 1 ? DEFAULT : array[1]
-    layer := layer_map[leader]
+    layer := leader2layer[leader]
     key_with_up := array.Length = 1 ? SubStr(array[1], 2) : array[2]
     array := StrSplit(key_with_up, " ")
     key := array[1]
-    index := index_map[key]
+    index := key2index[key]
     result := layer[index]
     postfix := array.Length = 1 ? "Down" : "Up"
     Send("{Blind}{" result " " postfix "}")
