@@ -22,7 +22,7 @@ Tab      p     v     u     y     c     q     /     k     o     ;     (     )    
 
 LCtrl     i     a     g     s     z     f     h     e     l     t     '      Enter
 
-LShift       x     d     b     r     w      n     m     j     ,     .       RShift
+LShift       x     d     r     b     w      m     n     j     ,     .       RShift
 
 LCtrl LWin LAlt                    Space                           LAlt Rwin RCtrl
 )"
