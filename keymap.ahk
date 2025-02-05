@@ -31,15 +31,15 @@ LCtrl LWin LAlt                    Space                           LAlt Rwin RCt
 
 setLayer("Space", "
 (
-F12   F1    F2    F3    F4    F5    F6    F7    F8    F9    F10   F11   PrintScreen  Volume_Up
+F11   F12   F2    F3    F4    F5    F6    F7    F8    F9    F10   Volume_Down    Volume_Up   Volume_Mute   
 
-LAlt     Tab   BS    Up    PgUp  Home  &     7     8     9     @     LAlt  AppsKey Volume_Mute
+LAlt     F1    BS    Up    PgUp  Home  &     7     8     9     @  Media_Prev Media_Next Media_Play_Pause 
 
-LCtrl     Esc   Left  Enter Right Ins   !     1     2     3     0     RCtrl        Volume_Down
+LCtrl     Esc   Left  Enter Right Ins   !     1     2     3     0        AppsKey             PrintScreen
 
-LShift    CapsLock Down  PgDn  Del   End   |     4     5     6     ~                    RShift
+LShift    CapsLock Down  PgDn  Del   End   |     4     5     6     ~                              RShift
 
-LCtrl LWin LAlt                    Space                                       LAlt Rwin RCtrl
+LCtrl LWin LAlt                    Space                                                 LAlt Rwin RCtrl
 )"
 )
 
