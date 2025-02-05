@@ -19,11 +19,11 @@ layer_default := create_layer("
 (
 ^     +     -     =     _     ``    %     #     *     {     }     [     ]        $
 
-Tab      b     w     u     c     y     ,     .     k     o     ;     (     )     \
+Tab      b     w     u     c     y     q     /     k     o     ;     (     )     \
 
 LCtrl     i     a     s     g     z     f     h     e     l     t     '      Enter
 
-LShift       x     d     r     v     p     n     m     j     q     /        RShift
+LShift       x     d     r     v     p     n     m     j     ,     .        RShift
 
 LCtrl LWin LAlt                    Space                           LAlt Rwin RCtrl
 )"
