@@ -1,121 +1,94 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
-; #UseHook true
 
-`::`
-1::^
-2::=
-3::_
-4::-
-5::+
-6::%
-7::#
-8::*
-9::`{
-+9::}
-0::(
-+0::)
--::$
-Tab::LAlt
-q::b
-w::r
-e::u
-r::y
-t::w
-y::q
-u::k
-i::f
-o::m
-p::;
-[::[
-+[::]
-CapsLock::LCtrl
-a::a
-s::s
-d::d
-f::t
-g::g
-h::j
-j::n
-k::e
-l::i
-`;::o
-'::'
-LShift::LShift
-z::z
-x::x
-c::c
-v::v
-b::p
-n::h
-m::l
-,::,
-.::.
-/::/
-RShift::\
+; SetCapsLockState 'AlwaysOff'
+; Space & F1:: Send "{Blind}{CapsLock Down}"
+; Space & F1 Up:: Send "{Blind}{CapsLock Up}"
 
-Space::Space
-Space & `::F12
-Space & 1::F1
-Space & 2::F2
-Space & 3::F3
-Space & 4::F4
-Space & 5::F5
-Space & 6::F6
-Space & 7::F7
-Space & 8::F8
-Space & 9::F9
-Space & 0::F10
-Space & -::F11
-Space & Tab::LAlt
-Space & q::Tab
-Space & w::BackSpace
-Space & e::Up
-Space & r::Delete
-Space & t::PgUp
-Space & y::&
-Space & u::7
-Space & i::8
-Space & o::9
-Space & p::@
-Space & [::LAlt
-Space & CapsLock::LCtrl
-Space & a::Escape
-Space & s::Left
-Space & d::Down
-Space & f::Right
-Space & g::PgDn
-Space & h::!
-Space & j::1
-Space & k::2
-Space & l::3
-Space & `;::0
-Space & '::RCtrl
-space & LShift::LShift
-Space & z::CapsLock
-Space & x::Home
-Space & c::Insert
-Space & v::Enter
-Space & b::End
-Space & n::|
-Space & m::4
-Space & ,::5
-Space & .::6
-Space & /::~
-Space & RShift::RShift
-Space & RAlt::RShift
+layer_qwerty := create_layer("
+(
+``     1     2     3     4     5     6     7     8     9     0     -     =       BS
 
-LAlt:: return
-#HotIf (GetKeyState("LAlt", "P"))
-w::Volume_Down
-e::Volume_Mute
-r::Volume_Up
-s::Media_Prev
-d::Media_Play_Pause
-f::Media_Next
-z::AppsKey
-x::PrintScreen
-c::ScrollLock
-v:: Pause
-b::F10
-#HotIf
+Tab       q     w     e     r     t     y     u     i     o     p     [     ]     \
+
+Caps       a     s     d     f     g     h     j     k     l     ;     '      Enter
+
+LShift        z     x     c     v     b     n     m     ,     .     /        RShift
+
+LCtrl LWin LAlt                     Space                        RAlt AppsKey RCtrl
+)"
+)
+
+layer_default := create_layer("
+(
+^     +     -     =     _     ``    %     #     *     {     }     [     ]         $
+
+Tab      b     w     u     y     p     q     f     k     m     ;     (     )      \
+
+LCtrl     a     r     s     t     d     j     n     e     i     o     '       Enter
+
+LShift       x     c     v     g     z     h     l     ,     .     /         RShift
+
+LCtrl LWin LAlt                     Space                            LAlt Rwin RCtrl
+)"
+)
+
+layer_space := create_layer("
+(
+F12   F1    F2    F3    F4    F5    F6    F7    F8    F9    F10    F11 PrintScreen  Volume_Up
+
+LAlt     Tab   BS    Up    Del   PgUp  &     7     8     9     @     LAlt AppsKey Volume_Mute
+
+LCtrl      Esc   Left  Down  Right PgDn  !     1     2     3     0     RCtrl      Volume_Down
+
+LShift        Home  Ins   Enter End   Caps  |     4     5     6     ~                  RShift
+
+LCtrl LWin LAlt                     Space                                     LAlt Rwin RCtrl
+)"
+)
+
+index_map := Map()
+for index, key in layer_qwerty
+    index_map[key] := index
+
+DEFAULT := "__DEFAULT__"
+layer_map := Map(
+    DEFAULT, layer_default,
+    "Space", layer_space,
+)
+for key, value in layer_map
+    enable_layer(key)
+
+create_layer(str) {
+    str := StrReplace(str, "`n", " ")
+    str := StrReplace(str, "Caps", "CapsLock")
+    loop {
+        str := StrReplace(str, "  ", " ", , &Count)
+        if Count = 0
+            break
+    }
+    return StrSplit(str, " ")
+}
+
+enable_layer(leader) {
+    if leader != DEFAULT
+        Hotkey leader, (hk) => Send("{" hk "}")
+    for index, key in layer_qwerty {
+        hot_key := leader = DEFAULT ? "*" key : leader " & " key
+        Hotkey hot_key, send_layered_key
+        Hotkey hot_key " Up", send_layered_key
+    }
+}
+
+send_layered_key(hot_key) {
+    array := StrSplit(hot_key, " & ")
+    leader := array.Length = 1 ? DEFAULT : array[1]
+    layer := layer_map[leader]
+    key_with_up := array.Length = 1 ? SubStr(array[1], 2) : array[2]
+    array := StrSplit(key_with_up, " ")
+    key := array[1]
+    index := index_map[key]
+    result := layer[index]
+    postfix := array.Length = 1 ? "Down" : "Up"
+    Send("{Blind}{" result " " postfix "}")
+}
