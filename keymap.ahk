@@ -1,7 +1,7 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
-set_keyboard("
+setKeyboard("
 (
 ``    1     2     3     4     5     6     7     8     9     0     -     =       BS
 
@@ -15,7 +15,7 @@ LCtrl LWin LAlt                    Space                        RAlt AppsKey RCt
 )"
 )
 
-set_layer("", "
+setLayer("", "
 (
 ^     +     -     =     _     ``    %     #     *     {     }     [     ]        $
 
@@ -29,7 +29,7 @@ LCtrl LWin LAlt                    Space                           LAlt Rwin RCt
 )"
 )
 
-set_layer("Space", "
+setLayer("Space", "
 (
 F12   F1    F2    F3    F4    F5    F6    F7    F8    F9    F10   F11   PrintScreen  Volume_Up
 
@@ -45,28 +45,29 @@ LCtrl LWin LAlt                    Space                                       L
 
 key2index := Map()
 
-set_keyboar(str) {
-for index, key in convert_to_layer(str)
+setKeyboard(str) {
+for index, key in convertLayer(str)
     key2index[key] := index
 }
 
 leader2layer := Map()
 
-set_layer(leader, str) {
-    leader2layer[leader] := convert_to_layer(str)
+setLayer(leader, str) {
+    leader2layer[leader] := convertLayer
+(str)
     for key in key2index {
-        hot_key := leader = "" ? "*" key : leader " & " key
-        Hotkey hot_key, send_layered_key
-        Hotkey hot_key " Up", send_layered_key
+        hKey := leader = "" ? "*" key : leader " & " key
+        Hotkey hKey, sendLayeredKey
+        Hotkey hKey " Up", sendLayeredKey
     }
 }
 
-send_layered_key(hot_key) {
-    array := StrSplit(hot_key, " & ")
+sendLayeredKey(hKey) {
+    array := StrSplit(hKey, " & ")
     leader := array.Length = 1 ? "" : array[1]
     layer := leader2layer[leader]
-    key_with_up := array.Length = 1 ? SubStr(array[1], 2) : array[2]
-    array := StrSplit(key_with_up, " ")
+    keyWithUp := array.Length = 1 ? SubStr(array[1], 2) : array[2]
+    array := StrSplit(keyWithUp, " ")
     key := array[1]
     index := key2index[key]
     result := layer[index]
@@ -74,11 +75,11 @@ send_layered_key(hot_key) {
     Send("{Blind}{" result " " postfix "}")
 }
 
-convert_to_layer(str) {
+convertLayer(str) {
     str := StrReplace(str, "`n", " ")
     loop {
-        str := StrReplace(str, "  ", " ", , &Count)
-        if Count = 0
+        str := StrReplace(str, "  ", " ", , &count)
+        if count = 0
             break
     }
     return StrSplit(str, " ")
