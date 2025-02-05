@@ -15,7 +15,7 @@ LCtrl LWin LAlt                    Space                        RAlt AppsKey RCt
 )"
 )
 
-layer_default := create_layer("
+setup_layer("", "
 (
 ^     +     -     =     _     ``    %     #     *     {     }     [     ]        $
 
@@ -29,7 +29,7 @@ LCtrl LWin LAlt                    Space                           LAlt Rwin RCt
 )"
 )
 
-layer_space := create_layer("
+setup_layer("Space", "
 (
 F12   F1    F2    F3    F4    F5    F6    F7    F8    F9    F10   F11   PrintScreen  Volume_Up
 
@@ -47,13 +47,7 @@ index_map := Map()
 for index, key in layer_qwerty
     index_map[key] := index
 
-DEFAULT := "__DEFAULT__"
-layer_map := Map(
-    DEFAULT, layer_default,
-    "Space", layer_space,
-)
-for key, value in layer_map
-    enable_layer(key)
+layer_map := Map()
 
 create_layer(str) {
     str := StrReplace(str, "`n", " ")
@@ -65,11 +59,10 @@ create_layer(str) {
     return StrSplit(str, " ")
 }
 
-enable_layer(leader) {
-  ；  if leader != DEFAULT
-  ；      Hotkey leader, (hk) => Send("{" hk "}")
+setup_layer(leader, str) {
+    layer_map[leader] := create_layer(str)
     for index, key in layer_qwerty {
-        hot_key := leader = DEFAULT ? "*" key : leader " & " key
+        hot_key := leader = "" ? "*" key : leader " & " key
         Hotkey hot_key, send_layered_key
         Hotkey hot_key " Up", send_layered_key
     }
