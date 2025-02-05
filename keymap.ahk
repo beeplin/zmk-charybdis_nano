@@ -45,20 +45,9 @@ LCtrl LWin LAlt                    Space                                       L
 
 key2index := Map()
 
-set_keyboard(str) {
+set_keyboar(str) {
 for index, key in convert_to_layer(str)
     key2index[key] := index
-}
-
-
-convert_to_layer(str) {
-    str := StrReplace(str, "`n", " ")
-    loop {
-        str := StrReplace(str, "  ", " ", , &Count)
-        if Count = 0
-            break
-    }
-    return StrSplit(str, " ")
 }
 
 leader2layer := Map()
@@ -74,7 +63,7 @@ set_layer(leader, str) {
 
 send_layered_key(hot_key) {
     array := StrSplit(hot_key, " & ")
-    leader := array.Length = 1 ? DEFAULT : array[1]
+    leader := array.Length = 1 ? "" : array[1]
     layer := leader2layer[leader]
     key_with_up := array.Length = 1 ? SubStr(array[1], 2) : array[2]
     array := StrSplit(key_with_up, " ")
@@ -83,4 +72,14 @@ send_layered_key(hot_key) {
     result := layer[index]
     postfix := array.Length = 1 ? "Down" : "Up"
     Send("{Blind}{" result " " postfix "}")
+}
+
+convert_to_layer(str) {
+    str := StrReplace(str, "`n", " ")
+    loop {
+        str := StrReplace(str, "  ", " ", , &Count)
+        if Count = 0
+            break
+    }
+    return StrSplit(str, " ")
 }
