@@ -1,6 +1,9 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
+key2index := Map()
+leader2layer := Map()
+
 setKeyboard "
 (
 ``    1     2     3     4     5     6     7     8     9     0     -     =       BS
@@ -40,18 +43,13 @@ LShift    CapsLock Down  PgDn  Del   End   |     4     5     6     ~            
 LCtrl LWin LAlt                    Space                                                 LAlt Rwin RCtrl
 )"
 
-key2index := Map()
-
 setKeyboard(str) {
-for index, key in convertLayer(str)
-    key2index[key] := index
+    for index, key in convertLayer(str)
+        key2index[key] := index
 }
 
-leader2layer := Map()
-
 setLayer(leader, str) {
-    leader2layer[leader] := convertLayer
-(str)
+    leader2layer[leader] := convertLayer(str)
     for key in key2index {
         hKey := leader = "" ? "*" key : leader " & " key
         Hotkey hKey, sendLayeredKey
