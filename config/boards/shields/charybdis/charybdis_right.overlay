@@ -3,14 +3,10 @@
  *
  * SPDX-License-Identifier: MIT
  */
- 
+
 #include "charybdis.dtsi"
 
 &default_transform {
-	col-offset = <6>;
-};
-
-&five_column_transform {
 	col-offset = <5>;
 };
 
